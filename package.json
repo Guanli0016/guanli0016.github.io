@@ -1,0 +1,29 @@
+{
+  "name": "guanli0016.github.io",
+  "version": "1.0.0",
+  "description": "刘冠立的个人主页",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Guanli0016/guanli0016.github.io.git"
+  },
+  "author": "Guanli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Guanli0016/guanli0016.github.io/issues"
+  },
+  "homepage": "https://github.com/Guanli0016/guanli0016.github.io#readme",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6",
+    "vue-tsc": "^2.0.6"
+  },
+  "dependencies": {
+    "vue": "^3.4.21"
+  }
+}

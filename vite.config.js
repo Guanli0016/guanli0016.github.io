@@ -1,20 +1,20 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from "path"
 
 export default defineConfig({
+    root: path.join( __dirname, 'src' ),
     build: {
-        outDir: __dirname,
+        outDir: '../',
         rollupOptions: {
+            input: path.join( __dirname, 'src/index.html' ),
             output: {
-                entryFileNames: "assets/[name].js"
+                entryFileNames: 'assets/[name].js',
             }
         }
     },
-    optimizeDeps: {
-        entries: 'template.html'
-    },
     server: {
-        open: 'templete.html'
+        open: true,
     },
     plugins: [
         vue(),

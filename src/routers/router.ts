@@ -4,9 +4,6 @@ import About from '../pages/About.vue'
 const routes = [
     {
         path: '/',
-        redirect: '/home'
-    }, {
-        path: '/home',
         component: Home
     }, {
         path: '/about',

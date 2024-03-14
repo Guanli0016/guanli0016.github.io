@@ -1,16 +1,20 @@
 <template>
-    <h1>刘冠立的个人主页</h1>
-    <p>yunning is a lovely little baby</p>
-    <router-link to="/">go to home</router-link>
-    <router-link to="/about">go to about</router-link>
-    <router-view></router-view>
+    <div class="wrapper">
+        <Header></Header>
+    </div>
 </template>
 
 <script setup lang='ts'>
     import { ref } from 'vue';
+    import Header from './components/Header.vue';
     
 </script>
 
-<style scoped>
-    
+<style>
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        background: url(./images/background.jpg) no-repeat center;
+        background-size: cover;
+    }
 </style>

@@ -15,8 +15,15 @@ export default defineConfig({
     },
     server: {
         open: true,
+        hmr: true,
     },
     plugins: [
         vue(),
-    ]
+    ],
+    resolve: {
+        // 设置别名
+        alias: {
+            "@": path.resolve( __dirname, 'src' )
+        }
+    }
 })

@@ -1,7 +1,7 @@
 <template>
     <header>
         <router-link class="link home" to="/">刘冠立的个人主页</router-link>
-        <router-link class="link" to="/">简介</router-link>
+        <router-link class="link" to="/about">简介</router-link>
         <router-link class="link" to="/">照片</router-link>
         <router-link class="link" to="/">事迹</router-link>
         <router-link class="link" to="/">家庭</router-link>

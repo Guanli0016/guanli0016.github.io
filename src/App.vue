@@ -1,6 +1,7 @@
 <template>
     <div class="wrapper">
         <Header></Header>
+        <router-view class="router-view"></router-view>
     </div>
 </template>
 
@@ -16,5 +17,10 @@
         height: 100%;
         background: url(./images/background.jpg) no-repeat center;
         background-size: cover;
+    }
+    .router-view {
+        width: 100%;
+        min-height: 100%;
+        padding-top: 50px;
     }
 </style>

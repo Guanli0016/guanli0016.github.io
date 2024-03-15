@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish": "npm run build && git add . && git commit -m '内容更改' && git push origin master"
   },
   "repository": {
     "type": "git",

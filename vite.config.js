@@ -13,7 +13,7 @@ export default defineConfig({
                 entryFileNames: 'assets/js/[name].js',
                 // 块文件名
                 chunkFileNames: chunkInfo => {
-                    const [ name, ext ] = path.basename( chunkInfo.name ).split( '.' );
+                    const [ name ] = path.basename( chunkInfo.name ).split( '.' );
                     return `assets/js/${ name.toLocaleLowerCase() }.js`;
                 },
                 // 资源文件名 css 图片等等

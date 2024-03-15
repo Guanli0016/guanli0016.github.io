@@ -1,11 +1,11 @@
 <template>
     <header>
         <router-link class="link home" to="/">刘冠立的个人主页</router-link>
-        <router-link class="link" to="/about">简介</router-link>
-        <router-link class="link" to="/">照片</router-link>
-        <router-link class="link" to="/">事迹</router-link>
-        <router-link class="link" to="/">家庭</router-link>
-        <router-link class="link" to="/">文章</router-link>
+        <router-link class="link" to="/family">家庭</router-link>
+        <router-link class="link" to="/article">文章</router-link>
+        <router-link class="link" to="/photo">照片</router-link>
+        <router-link class="link" to="/resume">简历</router-link>
+        <router-link class="link" to="/about">关于</router-link>
     </header>
 </template>
 
@@ -19,8 +19,6 @@
         width: 100%;
         height: 50px;
         padding: 10px 35px;
-        background-color: #0593d3;
-        border-bottom: 1px solid #0482ba;
         position: fixed;
         top: 0;
         left: 0;
@@ -30,6 +28,7 @@
     header .link {
         margin: 0 10px;
         font-size: 16px;
+        text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
         line-height: 30px;
         color: #fff;
         text-decoration: none;

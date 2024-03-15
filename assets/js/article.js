@@ -1,1 +1,1 @@
-import{d as e,o as t,c,_ as o}from"./index.js";const _=e({__name:"Article",setup(a){return(n,r)=>(t(),c("h1",null,"文章"))}}),p=o(_,[["__scopeId","data-v-68567775"]]);export{p as default};
+import{d as o,o as s,c as t,p as c,a,b as _,_ as p}from"./index.js";const r=e=>(c("data-v-b2059738"),e=e(),a(),e),d={class:"wrapper"},n=r(()=>_("h1",null,"文章",-1)),i=[n],l=o({__name:"Article",setup(e){return(h,m)=>(s(),t("div",d,i))}}),f=p(l,[["__scopeId","data-v-b2059738"]]);export{f as default};

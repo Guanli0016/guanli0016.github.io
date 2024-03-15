@@ -1,5 +1,7 @@
 <template>
-    <h1>简历</h1>
+    <div class="wrapper">
+        <h1>简历</h1>
+    </div>
 </template>
 
 <script setup lang='ts'>

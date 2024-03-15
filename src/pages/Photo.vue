@@ -1,5 +1,7 @@
 <template>
-    <h1>照片</h1>
+    <div class="wrapper">
+        <h1>照片</h1>
+    </div>
 </template>
 
 <script setup lang='ts'>

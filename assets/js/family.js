@@ -1,1 +1,1 @@
-import{d as e,o as a,c as o,_ as t}from"./index.js";const _=e({__name:"Family",setup(c){return(n,s)=>(a(),o("h1",null,"家庭"))}}),p=t(_,[["__scopeId","data-v-55e26870"]]);export{p as default};
+import{d as o,o as s,c as a,p as t,a as c,b as _,_ as p}from"./index.js";const d=e=>(t("data-v-0f038237"),e=e(),c(),e),n={class:"wrapper"},r=d(()=>_("h1",null,"家庭",-1)),i=[r],l=o({__name:"Family",setup(e){return(m,f)=>(s(),a("div",n,i))}}),u=p(l,[["__scopeId","data-v-0f038237"]]);export{u as default};

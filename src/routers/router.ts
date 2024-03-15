@@ -19,6 +19,9 @@ const routes: Array<RouteRecordRaw> = [
     }, {
         path: '/about',
         component: () => import('@/pages/About.vue')
+    }, {
+        path: '/:catchAll(.*)',
+        component: () => import('@/pages/404.vue')
     }
 ]
 

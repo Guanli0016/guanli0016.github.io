@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="container">
         <Header></Header>
         <router-view class="router-view"></router-view>
     </div>
@@ -12,7 +12,7 @@
 </script>
 
 <style>
-    .wrapper {
+    .container {
         width: 100%;
         height: 100%;
         background: url(./images/background.jpg) no-repeat center;
@@ -21,6 +21,6 @@
     .router-view {
         width: 100%;
         min-height: 100%;
-        padding-top: 50px;
+        padding: 50px 20px 0;
     }
 </style>

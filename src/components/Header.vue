@@ -18,7 +18,7 @@
     header {
         width: 100%;
         height: 50px;
-        padding: 10px 35px;
+        padding: 10px 20px;
         position: fixed;
         top: 0;
         left: 0;

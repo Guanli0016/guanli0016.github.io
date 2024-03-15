@@ -1,0 +1,1 @@
+import{d as o,o as s,c as a,p as t,a as c,b as _,_ as p}from"./index.js";const d=e=>(t("data-v-09a4d572"),e=e(),c(),e),n={class:"wrapper"},r=d(()=>_("h1",null,"没有这个页面哦~",-1)),i=[r],h=o({__name:"404",setup(e){return(l,m)=>(s(),a("div",n,i))}}),f=p(h,[["__scopeId","data-v-09a4d572"]]);export{f as default};

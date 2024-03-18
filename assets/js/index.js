@@ -1,6 +1,6 @@
 function __vite__mapDeps(indexes) {
   if (!__vite__mapDeps.viteFileDeps) {
-    __vite__mapDeps.viteFileDeps = ["assets/js/home.js","assets/js/_plugin-vue_export-helper.js","assets/css/home.css","assets/js/family.js","assets/css/family.css","assets/js/article.js","assets/css/article.css","assets/js/photo.js","assets/css/photo.css","assets/js/resume.js","assets/css/resume.css","assets/js/about.js","assets/css/about.css","assets/js/404.js","assets/css/404.css"]
+    __vite__mapDeps.viteFileDeps = ["assets/js/home.js","assets/js/plugin-vueexport-helper.js","assets/css/home.css","assets/js/family.js","assets/css/family.css","assets/js/article.js","assets/css/article.css","assets/js/photo.js","assets/css/photo.css","assets/js/resume.js","assets/css/resume.css","assets/js/about.js","assets/css/about.css","assets/js/404.js","assets/css/404.css"]
   }
   return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
 }

@@ -1,0 +1,23 @@
+{
+    "base": {
+        "姓名": "刘冠立",
+        "性别": "男",
+        "民族": "汉",
+        "出生日期": "1987-11-05",
+        "现居地": "北京市海淀区",
+        "籍贯": "河南省周口市",
+        "手机": "15710007550",
+        "邮箱": "garry0016@foxmail.com",
+        "工作年龄": "12年"
+    },
+    "skill": [
+        "熟练使用Html, Css, Javascript, JQuery等前端技术开发web应用",
+        "熟练使用Vue, Vite等前端服务框架",
+        "熟练使用Typescript语法",
+        "熟练使用Webpack, Rollup等打包工具",
+        "熟练使用Eggjs后端服务框架",
+        "了解Koa, Express等后端框架",
+        "了解Mysql, Mongodb等数据库技术",
+        "了解Ionic, Electron, Angular, 微信小程序的开发流程"
+    ]
+}

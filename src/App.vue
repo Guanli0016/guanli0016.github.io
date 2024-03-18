@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        <Header></Header>
         <router-view class="router-view"></router-view>
     </div>
 </template>
@@ -21,6 +20,6 @@
     .router-view {
         width: 100%;
         min-height: 100%;
-        padding: 50px 20px 0;
+        padding: 20px;
     }
 </style>

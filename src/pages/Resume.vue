@@ -1,18 +1,32 @@
 <template>
     <div class="wrapper">
         <div class="resume-wrapper">
-            <ResumeTitle>基本信息</ResumeTitle>
-            <ResumeRow v-for="( value, key ) in data.base" :tips="key">{{ value }}</ResumeRow>
-            <ResumeTitle>职业技能</ResumeTitle>
-            <ResumeRow v-for="( value, index ) in data.skill">{{ index + 1 }}. {{ value }}</ResumeRow>
+            <div v-for="( value, key ) in resumelist">
+                <ResumeTitle>{{ key }}</ResumeTitle>
+                <ResumeRow 
+                    v-if="isObject( value )" 
+                    v-for="( v, k ) in value" 
+                    :tips="k">
+                    {{ v }}
+                </ResumeRow>
+                <ResumeRow 
+                    v-if="isArray( value )" 
+                    v-for="v in value">
+                    {{ v }}
+                </ResumeRow>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang='ts'>
-    import data from '../data/resume.json';
+    
+    import resumelist from '../data/resume.json';
+    import { isArray, isObject } from '@/utils/Checker';
+
     import ResumeRow from '@/components/resume/ResumeRow.vue';
     import ResumeTitle from '@/components/resume/ResumeTitle.vue';
+
 </script>
 
 <style scoped>
@@ -22,12 +36,5 @@
     .resume-wrapper {
         max-width: 1000px;
         margin: 0 auto;
-    }
-    .resume-wrapper h2 {
-        padding: 10px 0;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #fff;
-        font-size: 20px;
-        line-height: 1.5;
     }
 </style>

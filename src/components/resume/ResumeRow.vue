@@ -1,6 +1,9 @@
 <template>
     <div class="resume-row">
-        <span class="tips" v-if="!!tips">{{ tips }}</span><span v-if="!!tips">：</span><slot></slot>
+        <span v-if="!!tips">
+            <span class="tips">{{ tips }}</span>：
+        </span>
+        <slot></slot>
     </div>
 </template>
 
@@ -20,10 +23,11 @@
         line-height: 1.5;
         color: #fff;
         letter-spacing: 2px;
+        text-align: justify;
     }
     .resume-row .tips {
         display: inline-block;
-        width: calc(4em + 8px);
+        width: calc( 4em + 8px );
         text-align: justify;
         text-align-last: justify;
     }

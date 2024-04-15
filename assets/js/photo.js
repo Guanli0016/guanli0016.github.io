@@ -1,0 +1,1 @@
+import{d as e,c as t,o as s,p as c,e as a,f as _}from"./index.js";import{_ as p}from"./plugin-vue-export-helper.js";const d=o=>(c("data-v-8cd1fc6d"),o=o(),a(),o),r={class:"wrapper"},n=d(()=>_("h1",null,"照片",-1)),f=[n],h=e({__name:"Photo",setup(o){return(i,m)=>(s(),t("div",r,f))}}),I=p(h,[["__scopeId","data-v-8cd1fc6d"]]);export{I as default};

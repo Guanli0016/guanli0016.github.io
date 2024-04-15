@@ -1,0 +1,1 @@
+import{d as e,c as t,o as s,p as c,e as a,f as _}from"./index.js";import{_ as p}from"./plugin-vue-export-helper.js";const d=o=>(c("data-v-766865cd"),o=o(),a(),o),r={class:"wrapper"},n=d(()=>_("h1",null,"关于",-1)),i=[n],m=e({__name:"About",setup(o){return(u,f)=>(s(),t("div",r,i))}}),I=p(m,[["__scopeId","data-v-766865cd"]]);export{I as default};

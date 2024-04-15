@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+    font-family: '微软雅黑', Arial, sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden auto;
+}
+
+h1, h2, h3, h4, h5, h6, p, div, span {
+    color: #fff;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.6);
+}

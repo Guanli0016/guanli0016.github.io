@@ -1,0 +1,1 @@
+import{d as o,c as t,o as s,p as c,e as a,f as _}from"./index.js";import{_ as p}from"./plugin-vue-export-helper.js";const r=e=>(c("data-v-b2059738"),e=e(),a(),e),d={class:"wrapper"},n=r(()=>_("h1",null,"文章",-1)),i=[n],l=o({__name:"Article",setup(e){return(m,f)=>(s(),t("div",d,i))}}),I=p(l,[["__scopeId","data-v-b2059738"]]);export{I as default};

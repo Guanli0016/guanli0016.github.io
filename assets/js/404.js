@@ -1,0 +1,1 @@
+import{d as o,c as s,o as t,p as a,e as c,f as _}from"./index.js";import{_ as p}from"./plugin-vue-export-helper.js";const d=e=>(a("data-v-09a4d572"),e=e(),c(),e),r={class:"wrapper"},n=d(()=>_("h1",null,"没有这个页面哦~",-1)),i=[n],m=o({__name:"404",setup(e){return(f,h)=>(t(),s("div",r,i))}}),I=p(m,[["__scopeId","data-v-09a4d572"]]);export{I as default};

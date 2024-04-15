@@ -1,0 +1,1 @@
+import{d as o,c as s,o as t,p as a,e as c,f as _}from"./index.js";import{_ as p}from"./plugin-vue-export-helper.js";const r=e=>(a("data-v-0f038237"),e=e(),c(),e),d={class:"wrapper"},n=r(()=>_("h1",null,"家庭",-1)),i=[n],m=o({__name:"Family",setup(e){return(f,l)=>(t(),s("div",d,i))}}),I=p(m,[["__scopeId","data-v-0f038237"]]);export{I as default};

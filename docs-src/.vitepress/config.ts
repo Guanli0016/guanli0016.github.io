@@ -6,4 +6,5 @@ export default defineConfig({
     title: 'Guanli Site',
     titleTemplate: 'Guanli HomePage',
     description: 'liuguanli homepage',
+    outDir: '/docs'
 })

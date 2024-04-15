@@ -13,6 +13,6 @@ hero:
       text: Get Started
       link: /guide/what-is-vitepress
     - theme: alt
-      text: Github地址
+      text: 个人
       link: https://github.com/Guanli0016/
 ---

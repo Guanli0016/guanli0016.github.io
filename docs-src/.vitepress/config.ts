@@ -7,7 +7,7 @@ export default defineConfig({
     titleTemplate: ':title | Guanli HomePage',
     description: 'liuguanli homepage',
     outDir: '../docs',
-    appearance: 'dark',
+    appearance: 'force-dark',
 
     // 主题相关配置
     themeConfig: {

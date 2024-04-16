@@ -13,7 +13,7 @@ export default defineConfig({
     themeConfig: {
         i18nRouting: false,
         logo: '/images/liu-logo.jpg',
-        siteTitle: '刘冠立的个人主页',
+        siteTitle: 'Guanli Site',
         nav: [
             {
                 text: '收藏',
@@ -21,10 +21,16 @@ export default defineConfig({
                     { text: 'vite教程', link: '/guides/vite' },
                 ]
             }, {
-                text: '家庭',
+                text: '家庭', 
                 items: [
-                    { text: '照片', link: '/guides/vite' },
+                    { text: '刘小宝', link: '/guides/family/lyn' },
                 ]
+            }
+        ],
+        sidebar: [
+            {
+                text: 'demo',
+                link: '/guides/collection',
             }
         ],
         socialLinks: [

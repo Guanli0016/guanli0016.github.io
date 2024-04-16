@@ -1,6 +1,8 @@
 ---
 layout: home
 
+title: 首页
+
 hero:
   name: 刘冠立
   text: 我的个人主页
@@ -15,4 +17,12 @@ hero:
     - theme: alt
       text: 个人
       link: https://github.com/Guanli0016/
+
+features:
+  - icon: 🛠️
+    title: Simple and minimal, always
+    details: Lorem ipsum...
+  - icon: 🛠️
+    title: Another cool feature
+    details: Lorem ipsum...
 ---

@@ -1,6 +1,6 @@
 <template>
     <div class='container'>
-        <div class='wrapper'>
+        <div class='wrapper' :class="layout">
             <slot></slot>
         </div>
     </div>
@@ -8,7 +8,10 @@
 
 <script setup lang='ts'>
     import { ref } from 'vue';
-    
+
+    const props = defineProps<{
+        layout: string
+    }>()
 </script>
 
 <style scoped>
@@ -20,12 +23,13 @@
         max-width: calc(var(--vp-layout-max-width) - 64px);
         height: auto;
         margin: 0 auto;
+    }
+    .wrapper.grid {
         display: grid;
-        grid-template-columns: repeat( auto-fit, 108px );
-        grid-auto-rows: 134px;
-        column-gap: 24px;
-        row-gap: 32px;
-        justify-content: space-around;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(auto-fit, 108px);
+        grid-gap: 24px 32px;
+        justify-content: center;
     }
     @media (min-width: 768px) {
         .container {

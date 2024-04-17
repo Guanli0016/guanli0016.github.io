@@ -12,7 +12,7 @@
 
     import MainWrapper from '../../components/MainWrapper.vue';
     import PhotoView from '../../components/PhotoView.vue';
-    import config from '../../photos/baby/config.json';
+    import config from '../../public/photos/baby/config.json';
 
     type Photos = {
         name: string,

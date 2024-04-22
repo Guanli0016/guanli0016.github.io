@@ -8,6 +8,7 @@ export default defineConfig({
     description: 'liuguanli homepage',
     outDir: '../docs',
     appearance: 'force-dark',
+    cleanUrls: true,
 
     // 主题相关配置
     themeConfig: {
@@ -23,7 +24,7 @@ export default defineConfig({
             }, {
                 text: '家庭', 
                 items: [
-                    { text: '刘小宝', link: '/guides/family/lyn' },
+                    { text: '刘小宝', link: '/guides/photoslist/baby' },
                 ]
             }
         ],

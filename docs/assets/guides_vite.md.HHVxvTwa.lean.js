@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./chunks/framework.DwDoyBw8.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guides/vite.md","filePath":"guides/vite.md"}'),s={name:"guides/vite.md"};function r(i,o,c,n,d,p){return a(),t("div")}const f=e(s,[["render",r]]);export{m as __pageData,f as default};

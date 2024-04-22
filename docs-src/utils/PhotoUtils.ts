@@ -1,13 +1,19 @@
 export const buildPhotoConfig = ( files: FileList ) => {
-    const json: { [ key: string ]: string[] } = {};
+    const json: { [ key: string ]: { [ key: string ]: string [] } } = {};
     for ( let file of files ) {
         const path: string = file.webkitRelativePath;
-        const [ mainDir, cateDir, fileName ] = path.split(/\//g);
-        if ( json.hasOwnProperty(cateDir) ) {
-            json[ cateDir ].push( path );
+        const [ base, cate, name ] = path.split(/\//g);
+        if (!json.hasOwnProperty( base )) {
+            json[base] = {};
+            if (!json[base].hasOwnProperty( cate )) {
+                json[base][cate] = [];
+            }   
+            json[base][cate].push( path );
         } else {
-            json[ cateDir ] = [];
-            json[ cateDir ].push( path );
+            if (!json[base].hasOwnProperty( cate )) {
+                json[base][cate] = [];
+            }   
+            json[base][cate].push( path );
         }
     }
     return json;

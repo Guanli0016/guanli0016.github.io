@@ -1,6 +1,6 @@
 <template>
     <div class='container'>
-        <div class='wrapper' :class="layout">
+        <div class='wrapper' :class='layout'>
             <slot></slot>
         </div>
     </div>

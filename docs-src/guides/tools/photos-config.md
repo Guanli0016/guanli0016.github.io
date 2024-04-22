@@ -4,9 +4,9 @@
 ---
 
 <MainWrapper>
-    <div class="form">
-        <label for="fileChooser">选择文件夹</label>
-        <input type="file" ref="fileInput" id="fileChooser" webkitdirectory @change="buildConfig" />
+    <div class='form'>
+        <label for='fileChooser'>选择文件夹</label>
+        <input type='file' ref='fileInput' id='fileChooser' webkitdirectory @change='buildConfig' />
     </div>
 </MainWrapper>
 

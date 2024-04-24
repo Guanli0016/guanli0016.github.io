@@ -4,19 +4,19 @@ layout: home
 title: 首页
 
 hero:
-  name: 刘冠立
-  text: 我的个人主页
+  name: Guanli
+  text: Home Page
   tagline: 事能知足心常泰，人到无求品自高
   image:
     src: /images/logo.png
     alt: Guanli
   actions:
     - theme: brand
-      text: Get Started
-      link: /guide/what-is-vitepress
+      text: 个人简介
+      link: /guides/privacy/intro
     - theme: alt
-      text: 个人
-      link: https://github.com/Guanli0016/
+      text: 工作简历
+      link: /guides/privacy/resume
 
 features:
   - icon: 🛠️

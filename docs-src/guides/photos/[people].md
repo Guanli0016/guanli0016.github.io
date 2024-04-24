@@ -1,6 +1,8 @@
 ---
     layout: page
     sidebar: false
+
+    title: 照片
 ---
 
 <MainWrapper layout='grid'>
@@ -13,7 +15,7 @@
 
     import MainWrapper from '../../components/MainWrapper.vue';
     import PhotoList from '../../components/PhotoList.vue';
-    import config from '../../public/photos/config.json';
+    import config from '../../configs/photos.json';
 
     const { params } = useData();
     

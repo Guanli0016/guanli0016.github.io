@@ -2,5 +2,5 @@
     layout: page
     sidebar: false
 
-    title: 工作简历
+    title: 个人简介
 ---

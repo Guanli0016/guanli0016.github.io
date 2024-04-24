@@ -1,4 +1,4 @@
-import config from '../../public/photos/config.json';
+import config from '../../configs/photos.json';
 
 export default {
     paths: () => {

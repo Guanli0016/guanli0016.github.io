@@ -22,7 +22,7 @@
         const files = evt.target.files;
         const json: any = buildPhotoConfig(files);
         const blob: Blob = new Blob([ JSON.stringify( json ) ], { type: 'text/plain;charset=utf-8' });
-        FileSaver.saveAs( blob, 'config.json' );
+        FileSaver.saveAs( blob, 'photos.json' );
     }
 
 </script>

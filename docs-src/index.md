@@ -19,10 +19,16 @@ hero:
       link: /guides/privacy/resume
 
 features:
-  - icon: 🛠️
-    title: Simple and minimal, always
-    details: Lorem ipsum...
-  - icon: 🛠️
-    title: Another cool feature
-    details: Lorem ipsum...
+  - icon: 
+      src: /icons/photo-icon.svg
+    title: JinJin
+    details: 张大宝精彩瞬间记录
+    link: /guides/photos/baby
+    linkText: 点击进入
+  - icon: 
+      src: /icons/photo-icon.svg
+    title: Yunning
+    details: 刘小宝精彩瞬间记录
+    link: /guides/photos/baby
+    linkText: 点击进入
 ---

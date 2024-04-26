@@ -1,0 +1,59 @@
+import{_ as s,c as n,o as a,a2 as l}from"./chunks/framework.CTeHs-tM.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{"layout":"doc"},"headers":[],"relativePath":"guides/notes/docx/build.md","filePath":"guides/notes/docx/build.md"}'),p={name:"guides/notes/docx/build.md"},e=l(`<h4 id="构建数据" tabindex="-1">构建数据 <a class="header-anchor" href="#构建数据" aria-label="Permalink to &quot;构建数据&quot;">​</a></h4><div class="language-javascript line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">javascript</span><pre class="shiki slack-dark vp-code"><code><span class="line"><span style="color:#6A9955;">    // 创建文档 option数据格式见下方</span></span>
+<span class="line"><span style="color:#569CD6;">    const</span><span style="color:#9CDCFE;"> doc</span><span style="color:#D4D4D4;"> =</span><span style="color:#569CD6;"> new</span><span style="color:#9CDCFE;"> docx</span><span style="color:#E6E6E6;">.</span><span style="color:#DCDCAA;">Document</span><span style="color:#E6E6E6;">(</span><span style="color:#9CDCFE;">option</span><span style="color:#E6E6E6;">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955;">    // 打包文档 转成Blob数据</span></span>
+<span class="line"><span style="color:#9CDCFE;">    docx</span><span style="color:#E6E6E6;">.</span><span style="color:#9CDCFE;">Packer</span><span style="color:#E6E6E6;">.</span><span style="color:#DCDCAA;">toBlob</span><span style="color:#E6E6E6;">(</span><span style="color:#9CDCFE;">doc</span><span style="color:#E6E6E6;">).</span><span style="color:#DCDCAA;">then</span><span style="color:#E6E6E6;">(</span><span style="color:#9CDCFE;">blob</span><span style="color:#569CD6;"> =&gt;</span><span style="color:#E6E6E6;"> {</span></span>
+<span class="line"><span style="color:#9CDCFE;">        console</span><span style="color:#E6E6E6;">.</span><span style="color:#DCDCAA;">log</span><span style="color:#E6E6E6;">(</span><span style="color:#9CDCFE;">blob</span><span style="color:#E6E6E6;">);</span></span>
+<span class="line"><span style="color:#E6E6E6;">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955;">    // 利用FileSaver里的saveAs方法 保存为docx格式的文件</span></span>
+<span class="line"><span style="color:#DCDCAA;">    saveAs</span><span style="color:#E6E6E6;">(</span><span style="color:#9CDCFE;">blob</span><span style="color:#E6E6E6;">, </span><span style="color:#CE9178;">&#39;example.docx&#39;</span><span style="color:#E6E6E6;">);</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="option-数据格式" tabindex="-1">option 数据格式 <a class="header-anchor" href="#option-数据格式" aria-label="Permalink to &quot;option 数据格式&quot;">​</a></h4><div class="language-json line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">json</span><pre class="shiki slack-dark vp-code"><code><span class="line"><span style="color:#E6E6E6;">{</span></span>
+<span class="line"><span style="color:#6A9955;">    // 文档创建者</span></span>
+<span class="line"><span style="color:#F44747;">    creator</span><span style="color:#E6E6E6;">: </span><span style="color:#F44747;">&#39;Tom&#39;</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">    // 文档标题</span></span>
+<span class="line"><span style="color:#F44747;">    title</span><span style="color:#E6E6E6;">: </span><span style="color:#F44747;">&#39;docx</span><span style="color:#F44747;"> title&#39;</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">    // 文档描述</span></span>
+<span class="line"><span style="color:#F44747;">    description</span><span style="color:#E6E6E6;">: </span><span style="color:#F44747;">&#39;a</span><span style="color:#F44747;"> wonderful</span><span style="color:#F44747;"> docx&#39;</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">    // 定义文档公共样式</span></span>
+<span class="line"><span style="color:#F44747;">    styles</span><span style="color:#E6E6E6;">: {</span></span>
+<span class="line"><span style="color:#6A9955;">        // 段落公共样式</span></span>
+<span class="line"><span style="color:#F44747;">        paragraphStyles</span><span style="color:#E6E6E6;">: [</span></span>
+<span class="line"><span style="color:#E6E6E6;">            {</span></span>
+<span class="line"><span style="color:#6A9955;">                // 样式唯一ID 应用于Paragraph的style属性</span></span>
+<span class="line"><span style="color:#F44747;">                id</span><span style="color:#E6E6E6;">: </span><span style="color:#F44747;">&#39;myStyle&#39;</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">                // Run级节点的样式</span></span>
+<span class="line"><span style="color:#F44747;">                run</span><span style="color:#E6E6E6;">: {</span></span>
+<span class="line"><span style="color:#6A9955;">                    // 字体名称</span></span>
+<span class="line"><span style="color:#F44747;">                    font</span><span style="color:#E6E6E6;">: </span><span style="color:#F44747;">&#39;微软雅黑&#39;</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">                    // 字体大小</span></span>
+<span class="line"><span style="color:#F44747;">                    size</span><span style="color:#E6E6E6;">: </span><span style="color:#B5CEA8;">24</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">                    // 字体颜色</span></span>
+<span class="line"><span style="color:#F44747;">                    color</span><span style="color:#E6E6E6;">: </span><span style="color:#F44747;">black</span><span style="color:#F44747;"> |</span><span style="color:#F44747;"> &#39;</span><span style="color:#B5CEA8;">000000</span><span style="color:#F44747;">&#39;</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">                    // 字体加粗</span></span>
+<span class="line"><span style="color:#F44747;">                    bold</span><span style="color:#E6E6E6;">: </span><span style="color:#569CD6;">true</span><span style="color:#F44747;"> |</span><span style="color:#569CD6;"> false</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">                    // 字体倾斜</span></span>
+<span class="line"><span style="color:#F44747;">                    italics</span><span style="color:#E6E6E6;">: </span><span style="color:#569CD6;">true</span><span style="color:#F44747;"> |</span><span style="color:#569CD6;"> false</span></span>
+<span class="line"><span style="color:#E6E6E6;">                },</span></span>
+<span class="line"><span style="color:#6A9955;">                // 段落节点的样式</span></span>
+<span class="line"><span style="color:#F44747;">                paragraph</span><span style="color:#E6E6E6;">: {</span></span>
+<span class="line"><span style="color:#6A9955;">                    // 段落间距</span></span>
+<span class="line"><span style="color:#F44747;">                    spacing</span><span style="color:#E6E6E6;">: {</span></span>
+<span class="line"><span style="color:#6A9955;">                        // 行高</span></span>
+<span class="line"><span style="color:#F44747;">                        line</span><span style="color:#E6E6E6;">: </span><span style="color:#B5CEA8;">276</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">                        // 向上外边距</span></span>
+<span class="line"><span style="color:#F44747;">                        before</span><span style="color:#E6E6E6;">: </span><span style="color:#B5CEA8;">140</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#6A9955;">                        // 向下外边距</span></span>
+<span class="line"><span style="color:#F44747;">                        after</span><span style="color:#E6E6E6;">: </span><span style="color:#B5CEA8;">140</span><span style="color:#E6E6E6;">,</span></span>
+<span class="line"><span style="color:#E6E6E6;">                    }</span></span>
+<span class="line"><span style="color:#E6E6E6;">                }</span></span>
+<span class="line"><span style="color:#E6E6E6;">            }</span></span>
+<span class="line"><span style="color:#E6E6E6;">        ]</span></span>
+<span class="line"><span style="color:#E6E6E6;">    },</span></span>
+<span class="line"><span style="color:#6A9955;">    // 节（段落组）</span></span>
+<span class="line"><span style="color:#F44747;">    sections</span><span style="color:#E6E6E6;">: [</span></span>
+<span class="line"><span style="color:#6A9955;">        // 节属性</span></span>
+<span class="line"><span style="color:#F44747;">        properties:</span><span style="color:#E6E6E6;"> {</span></span>
+<span class="line"><span style="color:#F44747;">            type</span><span style="color:#E6E6E6;">: </span><span style="color:#F44747;">docx.SectionType.CONTINUOUS</span><span style="color:#F44747;"> |</span><span style="color:#F44747;"> docx.SectionType.NEXT_PAGE</span></span>
+<span class="line"><span style="color:#E6E6E6;">        }</span></span>
+<span class="line"><span style="color:#E6E6E6;">    ]</span></span>
+<span class="line"><span style="color:#E6E6E6;">}</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br></div></div>`,4),o=[e];function c(r,t,E,i,y,b){return a(),n("div",null,o)}const d=s(p,[["render",c]]);export{m as __pageData,d as default};

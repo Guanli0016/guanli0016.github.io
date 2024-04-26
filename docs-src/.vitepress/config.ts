@@ -19,10 +19,18 @@ export default defineConfig({
             {
                 text: '官方文档',
                 items: [
-                    { text: 'Vite', link: 'https://cn.vitejs.dev/guide/' },
-                    { text: 'Vue', link: 'https://cn.vuejs.org/guide/introduction/' },
-                    { text: 'Angular', link: 'https://angular.cn/docs/' },
-                    { text: 'Electron', link: 'https://www.electronjs.org/zh/docs/latest/' },
+                    {
+                        items: [
+                            { text: 'Vue', link: 'https://cn.vuejs.org/guide/introduction/' },
+                            { text: 'Angular', link: 'https://angular.cn/docs/' },
+                        ]
+                    },
+                    {
+                        items: [
+                            { text: 'Vite', link: 'https://cn.vitejs.dev/guide/' },
+                            { text: 'Electron', link: 'https://www.electronjs.org/zh/docs/latest/' },
+                        ]
+                    }
                 ]
             }, {
                 text: '教程',
@@ -32,16 +40,21 @@ export default defineConfig({
             }, {
                 text: '笔记',
                 items: [
-                    { text: 'vite教程', link: '/guides/note/vite' },
+                    { text: 'docx', link: '/guides/notes/docx/welcome' },
                 ]
             }
         ],
-        sidebar: [
-            {
-                text: 'demo',
-                link: '/guides/collection',
-            }
-        ],
+        sidebar: {
+            '/guides/notes/docx': [
+                {
+                    text: 'docx.js 使用笔记',
+                    items: [
+                        { text: '概述', link: '/guides/notes/docx/welcome' },
+                        { text: '构建数据', link: '/guides/notes/docx/build' },
+                    ]
+                }
+            ]
+        },
         socialLinks: [
             { icon: 'github', link: 'https://github.com/Guanli0016/' },
             { icon: 'npm', link: 'https://www.npmjs.com/~guanli0016' },
@@ -49,5 +62,10 @@ export default defineConfig({
         footer: {
             copyright: 'Copyright © 2024-present Guanli'
         },
+    },
+
+    markdown: {
+        lineNumbers: true,
+        theme: 'slack-dark'
     }
 })

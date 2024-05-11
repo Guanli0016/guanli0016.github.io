@@ -5,15 +5,15 @@
     title: 照片
 ---
 
-<MainWrapper layout='grid'>
+<PageWrapper layout='grid'>
     <PhotoList v-for='item in photoslist' :cate='item.cate' :photos='item.data' @photo-view='gotoPhoto'></PhotoList>
-</MainWrapper>
+</PageWrapper>
 
 <script setup lang='ts'>
     import { ref, onMounted } from 'vue';
     import { useData } from 'vitepress';
 
-    import MainWrapper from '../../components/MainWrapper.vue';
+    import PageWrapper from '../../components/PageWrapper.vue';
     import PhotoList from '../../components/PhotoList.vue';
     import config from '../../configs/photos.json';
 

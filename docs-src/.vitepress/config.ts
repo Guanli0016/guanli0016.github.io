@@ -42,6 +42,28 @@ export default defineConfig({
                 items: [
                     { text: 'docx', link: '/guides/notes/docx/welcome' },
                 ]
+            }, {
+                text: '工具',
+                items: [
+                    {
+                        text: '在线格式化工具',
+                        items: [
+                            { text: 'XML在线格式化', link: '/guides/tools/format/xml' },
+                            { text: 'JSON在线格式化', link: '/guides/tools/format/json' },
+                        ]
+                    }, {
+                        text: '在线转换工具',
+                        items: [
+                            { text: '图片转BASE64', link: '/guides/tools/convert/image2base64' },
+                            { text: 'RGB转16进制', link: '/guides/tools/convert/rgb2hex' },
+                        ]
+                    }, {
+                        text: '在线生成工具',
+                        items: [
+                            { text: '二维码生成器', link: '/guides/tools/builder/qrcode' },
+                        ]
+                    }
+                ]
             }
         ],
         sidebar: {
@@ -51,6 +73,32 @@ export default defineConfig({
                     items: [
                         { text: '概述', link: '/guides/notes/docx/welcome' },
                         { text: '构建数据', link: '/guides/notes/docx/build' },
+                    ]
+                }
+            ],
+            '/guides/tools/format': [
+                {
+                    text: '在线格式化工具',
+                    items: [
+                        { text: 'XML在线格式化', link: '/guides/tools/format/xml' },
+                        { text: 'JSON在线格式化', link: '/guides/tools/format/json' },
+                    ]
+                }
+            ],
+            '/guides/tools/convert': [
+                {
+                    text: '在线转换工具',
+                    items: [
+                        { text: '图片转BASE64', link: '/guides/tools/convert/image2base64' },
+                        { text: 'RGB转16进制', link: '/guides/tools/convert/rgb2hex' },
+                    ]
+                }
+            ],
+            '/guides/tools/builder': [
+                {
+                    text: '在线生成工具',
+                    items: [
+                        { text: '二维码生成器', link: '/guides/tools/builder/qrcode' },
                     ]
                 }
             ]
@@ -63,7 +111,6 @@ export default defineConfig({
             copyright: 'Copyright © 2024-present Guanli'
         },
     },
-
     markdown: {
         lineNumbers: true,
         theme: 'slack-dark'

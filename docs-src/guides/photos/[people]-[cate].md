@@ -3,15 +3,15 @@
     sidebar: false
 ---
 
-<MainWrapper>
+<PageWrapper>
     <PhotoItem v-for='(image, index) in photos' :photo='fullurl(image)' :index='index'></PhotoItem>
-</MainWrapper>
+</PageWrapper>
 
 <script setup lang='ts'>
     import { ref, computed } from 'vue';
     import { useData } from 'vitepress';
 
-    import MainWrapper from '../../components/MainWrapper.vue';
+    import PageWrapper from '../../components/PageWrapper.vue';
     import PhotoItem from '../../components/PhotoItem.vue';
     import config from '../../configs/photos.json';
 

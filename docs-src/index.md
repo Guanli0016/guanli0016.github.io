@@ -8,8 +8,8 @@ hero:
   text: Home Page
   tagline: 事能知足心常泰，人到无求品自高
   image:
-    # src: /images/logo.png
-    # alt: Guanli
+    src: /images/logo.png
+    alt: Guanli
   actions:
     - theme: brand
       text: 个人简介

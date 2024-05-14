@@ -35,6 +35,7 @@
     "element-plus": "^2.6.2",
     "file-saver": "^2.0.5",
     "jquery": "^3.7.1",
+    "qrcode": "^1.5.3",
     "vitepress-plugin-image-viewer": "^1.1.4",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"

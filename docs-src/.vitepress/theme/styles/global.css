@@ -6,10 +6,23 @@
     --vp-home-hero-image-filter: blur(100px);
 }
 
-input {
+input[type=text] {
     width: 100%;
     height: 100%;
     padding: 0 10px;
     border: 1px solid var(--vp-c-divider);
     background: field;
+}
+
+button.GLButton {
+    border-radius: 20px;
+    padding: 0 20px;
+    border-color: var(--vp-button-alt-border);
+    background-color: var(--vp-button-alt-bg);
+    font-size: 14px;
+    color: var(--vp-button-alt-text);
+    line-height: 38px;
+}
+button.GLButton[blue] {
+    background-color: var(--vp-button-brand-bg);
 }

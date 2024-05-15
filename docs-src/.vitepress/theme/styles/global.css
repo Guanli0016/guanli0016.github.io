@@ -13,6 +13,15 @@ input[type=text] {
     border: 1px solid var(--vp-c-divider);
     background: field;
 }
+textarea {
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    border: 1px solid var(--vp-c-divider);
+    background: field;
+    line-height: 1.5;
+    resize: none;
+}
 
 button.GLButton {
     border-radius: 20px;

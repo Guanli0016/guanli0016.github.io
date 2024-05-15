@@ -58,6 +58,18 @@ export default defineConfig({
                             { text: 'RGB转16进制', link: '/guides/tools/convert/rgb2hex' },
                         ]
                     }, {
+                        text: '在线编码/解码工具',
+                        items: [
+                            { text: 'BASE64编码/解码', link: '/guides/tools/encode/base64' },
+                            { text: 'URL编码/解码', link: '/guides/tools/encode/url' },
+                        ]
+                    }, {
+                        text: '在线加密工具',
+                        items: [
+                            { text: 'MD5加密', link: '/guides/tools/encrypt/md5' },
+                            { text: 'SHA加密', link: '/guides/tools/encrypt/sha' },
+                        ]
+                    }, {
                         text: '在线生成工具',
                         items: [
                             { text: '二维码生成器', link: '/guides/tools/builder/qrcode' },
@@ -91,6 +103,24 @@ export default defineConfig({
                     items: [
                         { text: '图片转BASE64', link: '/guides/tools/convert/image2base64' },
                         { text: 'RGB转16进制', link: '/guides/tools/convert/rgb2hex' },
+                    ]
+                }
+            ],
+            '/guides/tools/encode': [
+                {
+                    text: '在线编码/解码工具',
+                    items: [
+                        { text: 'BASE64编码/解码', link: '/guides/tools/encode/base64' },
+                        { text: 'URL编码/解码', link: '/guides/tools/encode/url' },
+                    ]
+                }
+            ],
+            '/guides/tools/encrypt': [
+                {
+                    text: '在线加密工具',
+                    items: [
+                        { text: 'MD5加密', link: '/guides/tools/encrypt/md5' },
+                        { text: 'SHA加密', link: '/guides/tools/encrypt/sha' },
                     ]
                 }
             ],

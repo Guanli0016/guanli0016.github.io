@@ -6,16 +6,19 @@
 <br>
 <div class="qrcode-setup">
     <div class="setup-row">
-        内容：<input class="setup-input" type="text" v-model="content" placeholder="请输入网址或文本" />
+        网址或文本：<input class="setup-input" type="text" v-model="content" placeholder="请输入网址或文本" />
     </div>
     <div class="setup-row">
-        尺寸：<input class="setup-input" type="text" v-model="size" placeholder="请输入二维码像素尺寸（41 ~ 2048）" maxlength="4" @input="onSizeInput" />
+        二维码尺寸：<input class="setup-input" type="text" v-model="size" placeholder="请输入二维码像素尺寸（41 ~ 2048）" maxlength="4" @input="onSizeInput" />
     </div>
     <div class="setup-row">
-        空白：<input class="setup-input" type="text" v-model="margin" placeholder="请输入二维码空白区域宽度（0 ~ 9）" maxlength="1" @input="onMarginInput" />
+        空白区尺寸：<input class="setup-input" type="text" v-model="margin" placeholder="请输入二维码空白区域宽度（0 ~ 9）" maxlength="1" @input="onMarginInput" />
     </div>
     <div class="setup-row">
-        颜色：<input class="setup-input" type="text" v-model="color" placeholder="请输入二维码颜色" maxlength="7"  @input="onColorInput" />
+        颜色（RGBA）：<input class="setup-input" type="text" v-model="color" placeholder="请输入二维码颜色（RGBA）" maxlength="9"  @input="onColorInput" />
+    </div>
+    <div class="setup-row">
+        背景（RGBA）：<input class="setup-input" type="text" v-model="bgcolor" placeholder="请输入背景颜色（RGBA）" maxlength="9"  @input="onColorInput" />
     </div>
     <div class="buttons">
         <button class="GLButton" @click="buildQRCode">生成二维码</button>
@@ -33,10 +36,11 @@
     import FileSaver from 'file-saver';
     import { vValid, vMax } from '../../../directives/input';
 
-    const content = ref('http://www.liuguanli.com/');
+    const content = ref('https://www.liuguanli.com/');
     const size = ref(256);
     const margin = ref(4);
     const color = ref('#000000');
+    const bgcolor = ref('#FFFFFF');
 
     const qrcode = ref('');
 
@@ -58,18 +62,18 @@
 
     const build = (): Promise<string> => {
         const callback = ( resolve, reject ) => {
-            QRCode.toDataURL( content.value, {
-                errorCorrectionLevel: 'H',
+            const options: any = {
                 type: 'image/png',
-                margin: margin.value || 0,
                 width: size.value || 256,
+                margin: margin.value || 0,
+                errorCorrectionLevel: 'H',
+                maskPattern: 1,
                 color: {
                     dark: color.value || '#000000',
-                    light: "#FFFFFFFF"
+                    light: bgcolor.value || '#FFFFFF'
                 }
-            }).then(( url: string ) => {
-                resolve( url );
-            })
+            }
+            QRCode.toDataURL( content.value, options ).then(( url: string ) => resolve( url ));
         }
         return new Promise( callback );
     }

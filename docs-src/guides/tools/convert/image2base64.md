@@ -2,7 +2,7 @@
     layout: doc
 ---
 
-### 图片转BASE64 
+### 图片转Base64
 <br>
 <div class="file-area"
     @click="onFileClick"

@@ -1,1 +1,0 @@
-import{_ as e,c as t,o}from"./chunks/framework.BHRvbJ9z.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guides/tools/encode/base64.md","filePath":"guides/tools/encode/base64.md"}'),s={name:"guides/tools/encode/base64.md"};function a(c,n,r,d,i,p){return o(),t("div")}const m=e(s,[["render",a]]);export{l as __pageData,m as default};

@@ -2,15 +2,14 @@
     layout: doc
 ---
 
-### URL编码/解码
+### MD5加密
 <br>
 <div class="input-wrapper">
-    <textarea v-model="input"></textarea>
+    <textarea v-model="input" placeholder="请输入需要加密的字符串"></textarea>
 </div>
 <br>
 <div class="buttons">
-    <button class="GLButton" @click="encode">编码</button>
-    <button class="GLButton" blue @click="decode">解码</button>
+    <button class="GLButton" @click="encrypt">MD5加密</button>
 </div>
 <br>
 <div class="output-wrapper" @mouseenter="copyShow = true" @mouseleave="copyShow = false">
@@ -21,18 +20,15 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import CopyButton from '../../../components/ui/CopyButton.vue';
+    import md5 from "crypto-js/md5";
 
     const input = ref('www.liuguanli.com');
     const output = ref('');
 
     const copyShow = ref( false );
 
-    const encode = (): void => {
-        output.value = encodeURIComponent( input.value );
-    }
-
-    const decode = (): void => {
-        output.value = decodeURIComponent( input.value );
+    const encrypt = (): void => {
+        output.value = md5( input.value ).toString().toUpperCase();
     }
 
 </script>
@@ -47,7 +43,7 @@
         border-radius: 4px;
         padding: 5px 10px;
         background: field;
-        font-size: 12px;
+        font-size: 16px;
         line-height: 1.5;
         white-space: wrap;
         word-break: break-all;

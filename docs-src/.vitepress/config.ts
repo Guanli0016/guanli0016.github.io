@@ -43,6 +43,11 @@ export default defineConfig({
                     { text: 'docx', link: '/guides/notes/docx/welcome' },
                 ]
             }, {
+            //     text: '小Demo',
+            //     items: [
+            //         { text: 'docx', link: '/guides/notes/docx/welcome' },
+            //     ]
+            // }, {
                 text: '工具',
                 items: [
                     {

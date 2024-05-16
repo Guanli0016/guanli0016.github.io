@@ -1,24 +1,28 @@
 ---
     layout: doc
+
+    title: 二维码生成器
 ---
 
 ### 二维码生成器
 <br>
 <div class="qrcode-setup">
     <div class="setup-row">
-        网址或文本：<input class="setup-input" type="text" v-model="content" placeholder="请输入网址或文本" />
+        网址或文本：<input class="setup-input GLInput" type="text" v-model="content" placeholder="请输入网址或文本" />
     </div>
     <div class="setup-row">
-        二维码尺寸：<input class="setup-input" type="text" v-model="size" placeholder="请输入二维码像素尺寸（41 ~ 2048）" maxlength="4" @input="onSizeInput" />
+        二维码尺寸：<input class="setup-input GLInput" type="text" v-model="size" placeholder="请输入二维码像素尺寸（41 ~ 2048）" maxlength="4" @input="onSizeInput" />
     </div>
     <div class="setup-row">
-        空白区尺寸：<input class="setup-input" type="text" v-model="margin" placeholder="请输入二维码空白区域宽度（0 ~ 9）" maxlength="1" @input="onMarginInput" />
+        空白区宽度：<input class="setup-input GLInput" type="text" v-model="margin" placeholder="请输入二维码空白区域宽度（0 ~ 9）" maxlength="1" @input="onMarginInput" />
     </div>
     <div class="setup-row">
-        颜色（RGBA）：<input class="setup-input" type="text" v-model="color" placeholder="请输入二维码颜色（RGBA）" maxlength="9"  @input="onColorInput" />
+        颜色（RGBA）：<input class="setup-input GLInput color-input" type="text" v-model="color" placeholder="请输入二维码颜色（RGBA）" maxlength="9"  @input="onColorInput" />
+        <el-color-picker v-model="color" show-alpha color-format="hex" />
     </div>
     <div class="setup-row">
-        背景（RGBA）：<input class="setup-input" type="text" v-model="bgcolor" placeholder="请输入背景颜色（RGBA）" maxlength="9"  @input="onColorInput" />
+        背景（RGBA）：<input class="setup-input GLInput color-input" type="text" v-model="bgcolor" placeholder="请输入背景颜色（RGBA）" maxlength="9"  @input="onBGColorInput" />
+        <el-color-picker v-model="bgcolor" show-alpha color-format="hex" />
     </div>
     <div class="buttons">
         <button class="GLButton" @click="buildQRCode">生成二维码</button>
@@ -34,13 +38,14 @@
     import { ref } from 'vue';
     import QRCode from 'qrcode';
     import FileSaver from 'file-saver';
-    import { vValid, vMax } from '../../../directives/input';
+    import { ElColorPicker } from 'element-plus';
+    import 'element-plus/es/components/color-picker/style/css';
 
     const content = ref('https://www.liuguanli.com/');
     const size = ref(256);
     const margin = ref(4);
-    const color = ref('#000000');
-    const bgcolor = ref('#FFFFFF');
+    const color = ref('#000000FF');
+    const bgcolor = ref('#FFFFFFFF');
 
     const qrcode = ref('');
 
@@ -98,6 +103,13 @@
             color.value = "#" + color.value;
         }
     }
+
+    const onBGColorInput = () => {
+        bgcolor.value = bgcolor.value.replace(/[^0-9a-f]/gi, '').toLocaleUpperCase();
+        if ( !bgcolor.value.startsWith("#") ) {
+            bgcolor.value = "#" + bgcolor.value;
+        }
+    }
 </script>
 
 <style scoped>
@@ -109,9 +121,11 @@
     }
     input.setup-input {
         flex: 1;
-        border-radius: 8px;
     }
-
+    input.color-input {
+        border-radius: 4px 0 0 4px;
+    }
+    
     .buttons {
         margin-top: 20px;
         display: flex;

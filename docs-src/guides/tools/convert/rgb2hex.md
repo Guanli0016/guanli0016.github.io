@@ -6,19 +6,19 @@
 <br>
 <div class="rgb-box">
     <div class="rbg-row">
-        红（0 ~ 255）：<input class="rgb-input" type="text" maxlength="3" v-model="red" @input="onRedInput" placeholder="请输入0~255之间的数字" />
+        红（0 ~ 255）：<input class="GLInput rgb-input" type="text" maxlength="3" v-model="red" @input="onRedInput" placeholder="请输入0~255之间的数字" />
     </div>
     <div class="rbg-row">
-        绿（0 ~ 255）：<input class="rgb-input" type="text" maxlength="3" v-model="green" @input="onGreenInput" placeholder="请输入0~255之间的数字" />
+        绿（0 ~ 255）：<input class="GLInput rgb-input" type="text" maxlength="3" v-model="green" @input="onGreenInput" placeholder="请输入0~255之间的数字" />
     </div>
     <div class="rbg-row">
-        蓝（0 ~ 255）：<input class="rgb-input" type="text" maxlength="3" v-model="blue" @input="onBlueInput" placeholder="请输入0~255之间的数字" />
+        蓝（0 ~ 255）：<input class="GLInput rgb-input" type="text" maxlength="3" v-model="blue" @input="onBlueInput" placeholder="请输入0~255之间的数字" />
     </div>
 </div>
 <br>
 <div class="hex-box">
     <div class="hex-row" @mouseenter="copyShow = true" @mouseleave="copyShow = false">
-        <input class="hex-input" type="text" maxlength="7" v-model="hex" ref="hexInput" @input="onHEXInput" />
+        <input class="GLInput hex-input" type="text" maxlength="7" v-model="hex" ref="hexInput" @input="onHEXInput" />
         <CopyButton class="copy-button" title="复制色号" :content="hex" :show="copyShow"></CopyButton>
     </div>
     <div class="color-block" :style="{ 'background-color': hex }"></div>
@@ -83,16 +83,16 @@
     }
     input.rgb-input {
         flex: 1;
-        border-radius: 8px;
     }
     input.hex-input {
         font-size: 24px;
         padding: 0 15px;
+        border-radius: 4px 4px 0 0;
     }
     .hex-box {
         height: 200px;
         border: 1px solid var(--vp-c-divider);
-        border-radius: 8px;
+        border-radius: 4px;
         overflow: hidden;
         display: flex;
         flex-direction: column;

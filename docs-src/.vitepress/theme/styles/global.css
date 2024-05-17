@@ -34,12 +34,12 @@ textarea.GLTextarea:focus::placeholder {
 
 button.GLButton {
     border-radius: 20px;
-    padding: 0 20px;
+    padding: 12px 20px;
     border-color: var(--vp-button-alt-border);
     background-color: var(--vp-button-alt-bg);
     font-size: 14px;
     color: var(--vp-button-alt-text);
-    line-height: 38px;
+    line-height: 14px;
 }
 button.GLButton[blue] {
     background-color: var(--vp-button-brand-bg);

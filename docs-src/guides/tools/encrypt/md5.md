@@ -39,6 +39,6 @@
         justify-content: center;
     }
     .buttons button {
-        margin: 0 20px;
+        margin: 0 10px;
     }
 </style>

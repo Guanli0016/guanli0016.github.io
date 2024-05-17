@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
 
 export default defineConfig({
     // 应用级配置选项
@@ -23,8 +23,7 @@ export default defineConfig({
                             { text: 'Vue', link: 'https://cn.vuejs.org/guide/introduction/' },
                             { text: 'Angular', link: 'https://angular.cn/docs/' },
                         ]
-                    },
-                    {
+                    }, {
                         items: [
                             { text: 'Vite', link: 'https://cn.vitejs.dev/guide/' },
                             { text: 'Electron', link: 'https://www.electronjs.org/zh/docs/latest/' },
@@ -42,11 +41,6 @@ export default defineConfig({
                     { text: 'docx', link: '/guides/notes/docx/welcome' },
                 ]
             }, {
-            //     text: '小Demo',
-            //     items: [
-            //         { text: 'docx', link: '/guides/notes/docx/welcome' },
-            //     ]
-            // }, {
                 text: '工具',
                 items: [
                     {
@@ -92,50 +86,43 @@ export default defineConfig({
                     ]
                 }
             ],
-            '/guides/tools/format': [
+            '/guides/tools': [
                 {
                     text: '在线格式化工具',
+                    collapsed: true,
                     items: [
                         { text: 'XML在线格式化', link: '/guides/tools/format/xml' },
                         { text: 'JSON在线格式化', link: '/guides/tools/format/json' },
                     ]
-                }
-            ],
-            '/guides/tools/convert': [
-                {
+                }, {
                     text: '在线转换工具',
+                    collapsed: true,
                     items: [
                         { text: '图片转BASE64', link: '/guides/tools/convert/image2base64' },
                         { text: 'RGB转16进制', link: '/guides/tools/convert/rgb2hex' },
                     ]
-                }
-            ],
-            '/guides/tools/encode': [
-                {
+                }, {
                     text: '在线编码/解码工具',
+                    collapsed: true,
                     items: [
                         { text: 'BASE64编码/解码', link: '/guides/tools/encode/base64' },
                         { text: 'URL编码/解码', link: '/guides/tools/encode/url' },
                     ]
-                }
-            ],
-            '/guides/tools/encrypt': [
-                {
+                }, {
                     text: '在线加密工具',
+                    collapsed: true,
                     items: [
                         { text: 'MD5加密', link: '/guides/tools/encrypt/md5' },
                         { text: 'SHA加密', link: '/guides/tools/encrypt/sha' },
                     ]
-                }
-            ],
-            '/guides/tools/builder': [
-                {
+                }, {
                     text: '在线生成工具',
+                    collapsed: true,
                     items: [
                         { text: '二维码生成器', link: '/guides/tools/builder/qrcode' },
                     ]
                 }
-            ]
+            ],
         },
         socialLinks: [
             { icon: 'github', link: 'https://github.com/Guanli0016/' },

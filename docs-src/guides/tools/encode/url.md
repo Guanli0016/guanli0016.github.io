@@ -9,8 +9,8 @@
 </div>
 <br>
 <div class="buttons">
-    <button class="GLButton" @click="encode">编码</button>
-    <button class="GLButton" blue @click="decode">解码</button>
+    <button class="GLButton" @click="encode">URL编码</button>
+    <button class="GLButton" blue @click="decode">URL解码</button>
 </div>
 <br>
 <OutputArea :output="output"></OutputArea>

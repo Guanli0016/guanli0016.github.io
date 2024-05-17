@@ -1,4 +1,12 @@
 import DefaultTheme from 'vitepress/theme';
-import './styles/global.css';
+import ElementPlus from 'element-plus';
 
-export default DefaultTheme;
+import './styles/global.css';
+import 'element-plus/dist/index.css'
+
+export default {
+    ...DefaultTheme,
+    enhanceApp({ app }) {
+        app.use( ElementPlus );
+    }
+};

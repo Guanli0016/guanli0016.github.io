@@ -38,8 +38,6 @@
     import { ref } from 'vue';
     import QRCode from 'qrcode';
     import FileSaver from 'file-saver';
-    import { ElColorPicker } from 'element-plus';
-    import 'element-plus/es/components/color-picker/style/css';
 
     const content = ref('https://www.liuguanli.com/');
     const size = ref(256);

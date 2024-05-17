@@ -9,7 +9,6 @@ export default defineConfig({
     outDir: '../docs',
     appearance: 'force-dark',
     cleanUrls: true,
-
     // 主题相关配置
     themeConfig: {
         i18nRouting: false,

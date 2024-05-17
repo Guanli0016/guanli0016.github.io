@@ -1,0 +1,3 @@
+import{_ as o,c as a,o as s,p as c,q as d,l as e}from"./chunks/framework.BhEyZpVg.js";const v=JSON.parse('{"title":"","description":"","frontmatter":{"layout":"doc"},"headers":[],"relativePath":"guides/tools/format/xml.md","filePath":"guides/tools/format/xml.md"}'),r={name:"guides/tools/format/xml.md"},n=t=>(c("data-v-5b5c1638"),t=t(),d(),t),l=n(()=>e("div",{class:"wrapper"},[e("textarea",{class:"input",tabindex:"-1"},`
+        <div></div>
+    `),e("button",null,"123123")],-1)),p=[l];function i(t,_,m,u,f,x){return s(),a("div",null,p)}const b=o(r,[["render",i],["__scopeId","data-v-5b5c1638"]]);export{v as __pageData,b as default};

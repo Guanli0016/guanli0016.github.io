@@ -1,6 +1,8 @@
 ---
     layout: page
     sidebar: false
+
+    title: 照片
 ---
 
 <PageWrapper>

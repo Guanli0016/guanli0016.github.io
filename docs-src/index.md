@@ -10,13 +10,13 @@ hero:
   image:
     src: /images/logo.png
     alt: Guanli
-  # actions:
-  #   - theme: brand
-  #     text: 个人简介
-  #     link: /guides/privacy/intro
-  #   - theme: alt
-  #     text: 工作简历
-  #     link: /guides/privacy/resume
+  actions:
+    - theme: brand
+      text: 学习笔记
+      link: /guides/notes/docx/welcome
+    - theme: alt
+      text: 实用工具
+      link: /guides/tools/convert/image2base64
 
 features:
   - icon: 
@@ -32,3 +32,5 @@ features:
     link: /guides/photos/baby
     linkText: 点击进入
 ---
+
+<GLPlayer></GLPlayer>

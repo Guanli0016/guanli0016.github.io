@@ -1,20 +1,35 @@
 <template>
-    <div class="background-sound-button" :class="{ playing: playing }" @click="togglePlay"></div>
+    <div class="background-sound-button" :class="{ playing: playing }" @click="togglePlay">
+        <audio 
+            preload="metadata"
+            ref="player"
+            id="audio"
+            @play="onAudioPlayed"
+            @pause="onAudioPaused"
+            @ended="onAudioEnded">
+            <source :src="sounds[index]"></source>
+        </audio>
+    </div>
 </template>
 
 <script setup lang="ts">
     import { ref, onMounted } from 'vue';
-    import { Howl } from 'howler';
-    import bgaudio from '../../configs/bgaudio.json';
+    import bgsounds from '../../configs/bgsounds.json';
 
-    let playing = ref(false);
-    let player;
+    const playing = ref(false);
+    const player = ref();
+
+    const sounds: string[] = bgsounds.sounds;
+    const randomIndex: number = Math.floor( Math.random() * sounds.length );
+    const index = ref<number>( randomIndex );
+    
+    let autoplay: boolean = false;
 
     const togglePlay = () => {
-        if ( playing.value ) {
-            player.pause();
+        if ( player.value.paused ) {
+            player.value.play();
         } else {
-            player.play();
+            player.value.pause();
         }
     }
 
@@ -25,20 +40,21 @@
     const onAudioPaused = () => {
         playing.value = false;
     }
-
-    const onAudioStoped = () => {
+    
+    const onAudioEnded = () => {
         playing.value = false;
+        index.value === sounds.length -1 ? index.value = 0 : index.value++;
+        player.value.load();
+        player.value.play();
     }
 
     onMounted(() => {
-        player = new Howl({
-            src: bgaudio.sounds,
-            loop: true,
-            autoplay: true,
-            onplay: onAudioPlayed,
-            onpause: onAudioPaused,
-            onstop: onAudioStoped,
-        })
+        if ( autoplay ) {
+            player.value.load();
+            player.value.play().catch(() => {
+
+            });
+        }
     })
 </script>
 

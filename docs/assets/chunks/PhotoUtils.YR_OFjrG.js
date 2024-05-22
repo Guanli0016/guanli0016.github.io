@@ -1,0 +1,1 @@
+const i=n=>{const t={};for(let a of n){const s=a.webkitRelativePath,[e,o,r]=s.split(/\//g);t.hasOwnProperty(e)?(t[e].hasOwnProperty(o)||(t[e][o]=[]),t[e][o].push(s)):(t[e]={},t[e].hasOwnProperty(o)||(t[e][o]=[]),t[e][o].push(s))}return t};export{i as b};

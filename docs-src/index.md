@@ -32,5 +32,3 @@ features:
     link: /guides/photos/baby
     linkText: 点击进入
 ---
-
-<GLPlayer></GLPlayer>

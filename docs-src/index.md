@@ -23,12 +23,12 @@ features:
       src: /icons/photo-icon.svg
     title: JinJin
     details: 张大宝精彩瞬间记录
-    link: /guides/photos/baby
+    link: /guides/photos/刘芸宁-小宝百天
     linkText: 点击进入
   - icon: 
       src: /icons/photo-icon.svg
     title: Yunning
     details: 刘小宝精彩瞬间记录
-    link: /guides/photos/baby
+    link: /guides/photos/刘芸宁-小宝出世
     linkText: 点击进入
 ---

@@ -1,0 +1,1 @@
+const p=t=>{const e=n("照片墙");for(let s of t)f(e,s);return e},f=(t,e)=>{const s=e.webkitRelativePath,[h,c,m,l]=s.split(/\//);let i=a(t.items,c);i||(i=n(c),t.items.push(i));let o=a(i.items,m);o||(o=n(m),i.items.push(o)),o.items.push(s)},n=t=>({text:t,items:[]}),a=(t,e)=>t.find(s=>s.text===e);export{p as b};

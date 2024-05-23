@@ -1,5 +1,5 @@
 <template>
-    <div class="background-sound-button" :class="{ playing: playing }" @click="togglePlay">
+    <div class="background-sound-button" ref="wrapper" :class="{ playing: playing }" @click="togglePlay">
         <audio 
             preload="metadata"
             ref="player"
@@ -18,12 +18,13 @@
 
     const playing = ref(false);
     const player = ref();
+    const wrapper = ref();
 
     const sounds: string[] = bgsounds.sounds;
     const randomIndex: number = Math.floor( Math.random() * sounds.length );
     const index = ref<number>( randomIndex );
     
-    let autoplay: boolean = false;
+    const autoplay: boolean = true;
 
     const togglePlay = () => {
         if ( player.value.paused ) {
@@ -48,11 +49,22 @@
         player.value.play();
     }
 
+    const waitActived = ( evt: MouseEvent ) => {
+        document.removeEventListener( 'mousedown', waitActived );
+        if ( evt.target === wrapper.value ) {
+            return;
+        }
+        setTimeout(() => {
+            player.value.play();
+        });
+    }
+
     onMounted(() => {
         if ( autoplay ) {
             player.value.load();
             player.value.play().catch(() => {
-
+                console.log( "play faile" );
+                document.addEventListener( 'mousedown', waitActived );
             });
         }
     })
@@ -65,7 +77,7 @@
         background: url(/icons/audio-icon.svg);
         color: white;
         position: fixed;
-        top: 84px;
+        top: 126px;
         right: 20px;
         cursor: pointer;
     }

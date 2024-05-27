@@ -2,7 +2,7 @@
     <div class="code-area-wrapper" v-if="!!code" @mouseenter="copyShow = true" @mouseleave="copyShow = false">
         <div class="code-area">
             <h6>CODE</h6>
-            <p>{{ code }}</p>
+            <p><span>{{ code }}</span></p>
         </div>
         <CopyButton class="copy-button" title="复制代码" :content="code" :show="copyShow"></CopyButton>
     </div>

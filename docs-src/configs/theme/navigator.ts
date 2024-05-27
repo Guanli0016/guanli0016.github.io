@@ -29,19 +29,27 @@ export default [
             }
         ]
     }, {
-        text: '收藏',
+        text: '网站收藏',
         items: [
-            { text: 'IconFont', link: 'https://www.iconfont.cn/' },
-            { text: 'Pexels', link: 'https://www.pexels.com/zh-cn/' },
-            { text: 'OpenAI API Proxy', link: 'https://www.openai-proxy.com/' },
+            { text: 'IconFont 阿里巴巴矢量图库', link: 'https://www.iconfont.cn/' },
+            { text: 'Pexels 免费素材图片', link: 'https://www.pexels.com/zh-cn/' },
+            { text: 'OpenAI API Proxy OpenAI代理', link: 'https://www.openai-proxy.com/' },
         ]
     }, {
-        text: '笔记',
+        text: '教程转载',
         items: [
-            { text: 'docx', link: '/guides/notes/docx/welcome' },
+            { text: 'Fetch API 教程', link: 'https://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html' },
+            { text: 'CSS Grid 网格布局教程', link: 'https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html' },
+            { text: 'ES6 教程', link: 'https://wangdoc.com/es6/' },
+            { text: 'TypeScript 教程', link: 'https://wangdoc.com/typescript/' },
         ]
     }, {
-        text: '工具',
+        text: '学习笔记',
+        items: [
+            { text: 'Docx', link: '/guides/notes/docx/welcome' },
+        ]
+    }, {
+        text: '实用工具',
         items: [
             {
             //     text: '在线格式化工具',

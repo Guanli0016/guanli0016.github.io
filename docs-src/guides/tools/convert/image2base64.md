@@ -10,7 +10,7 @@
     @dragover.prevent
     @dragenter.prevent
 ></div>
-<input type="file" ref="fileInput" hidden accept="image/png, image/jpeg" @change="onFileChange" />
+<input type="file" ref="fileInput" hidden accept="image/*" @change="onFileChange" />
 <br>
 <CodeArea :code="baseCode"></CodeArea>
 

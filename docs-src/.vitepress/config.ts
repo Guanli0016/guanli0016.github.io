@@ -1,3 +1,4 @@
+import { fileURLToPath, URL } from 'node:url';
 import { DefaultTheme, UserConfig, defineConfig } from 'vitepress';
 
 import navigator from '../configs/theme/navigator';
@@ -13,6 +14,19 @@ const config: UserConfig<DefaultTheme.Config> = {
     outDir: '../docs',
     appearance: 'force-dark',
     cleanUrls: true,
+
+    vite: {
+        resolve: {
+            alias: [
+                {
+                    find: /^.*\/VPHero\.vue$/,
+                    replacement: fileURLToPath(
+                        new URL( '../components/extends/VPHero.vue', import.meta.url )
+                    )
+                }
+            ]
+        }
+    },
 
     // 主题相关配置
     themeConfig: {

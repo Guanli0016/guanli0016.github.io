@@ -10,7 +10,8 @@
     const wrapper = ref<HTMLDivElement>();
     const canvasRef = ref<HTMLCanvasElement>();
 
-    const numerals: string[] = [ 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII' ];
+    // const numerals: string[] = [ 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII' ];
+    const numerals: string[] = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12' ];
 
     const drawClock = () => {
 
@@ -20,7 +21,7 @@
 
         const width: number = canvas.width;
         const height: number = canvas.height;
-        const fw: number = width / 8;
+        const fw: number = width / 16;
 
         const silveryGradient: CanvasGradient = ctx.createLinearGradient( 0, height, width, 0 );
         silveryGradient.addColorStop( 0, '#A4A4A4' );
@@ -30,11 +31,16 @@
         bgGradient.addColorStop( 0, '#800000' );
         bgGradient.addColorStop( 1, '#A52A2A' );
 
-        ctx.save();
         ctx.clearRect( 0, 0, width, height );
-        ctx.translate( width / 2, height / 2 );
 
+        // ctx.shadowColor = 'rgba(200,200,0,0.5)';
+        // ctx.shadowOffsetX = 12;
+        // ctx.shadowOffsetY = 12;
+        // ctx.shadowBlur = 15;
+        
         // 表盘
+        ctx.save();
+        ctx.translate( width / 2, height / 2 );
         ctx.beginPath();
         ctx.lineWidth = fw;
         ctx.strokeStyle = silveryGradient;
@@ -43,6 +49,24 @@
         ctx.stroke();
         ctx.fill();
         ctx.closePath();
+        ctx.restore();
+
+        // 分钟刻度
+        ctx.save();
+        ctx.translate( width / 2, height / 2 );
+        for ( let i = 0; i < 60; i++ ) {
+            ctx.beginPath();
+            ctx.lineWidth = 1;
+            ctx.fillStyle = silveryGradient;
+            ctx.moveTo( 0,  - ( height / 2 - fw / 2 - height * 0.025 ));
+            if ( i % 5 === 0 ) {
+                ctx.arc( 0, - ( height / 2 - fw / 2 - height * 0.03125 ), height * 0.0125, 0, Math.PI * 2 );
+            } else {
+                ctx.arc( 0, - ( height / 2 - fw / 2 - height * 0.03125 ), height * 0.00625, 0, Math.PI * 2 );
+            }
+            ctx.fill();
+            ctx.rotate( Math.PI / 30 );
+        }
         ctx.restore();
 
         // 数字刻度
@@ -55,7 +79,7 @@
             ctx.strokeStyle = silveryGradient;
             ctx.lineWidth = 1;
             ctx.rotate( Math.PI / 6 );
-            ctx.strokeText( numerals[i], -text.width / 2, - ( height / 2 - fw / 2 - height * 0.0625 ));
+            ctx.strokeText( numerals[i], -text.width / 2, - ( height / 2 - fw / 2 - height * 0.125 ));
         }
         ctx.restore();
 
@@ -73,10 +97,15 @@
              + ( Math.PI / 360 ) * minutes + ( Math.PI / 21600 ) * seconds
         );
         ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
         ctx.beginPath();
-        ctx.strokeStyle = silveryGradient;
+        ctx.strokeStyle = '#333333';
         ctx.moveTo( - ( height * 0.046875 ), 0 );
         ctx.lineTo( height * 0.2375, 0 );
+        ctx.shadowColor = '#4A4A4A';
+        ctx.shadowOffsetX = 1;
+        ctx.shadowOffsetY = 1;
+        ctx.shadowBlur = 1;
         ctx.stroke();
         ctx.restore();
 
@@ -88,10 +117,15 @@
             //  + ( Math.PI / 1800 ) * seconds
         );
         ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
         ctx.beginPath();
-        ctx.strokeStyle = silveryGradient;
+        ctx.strokeStyle = '#333333';
         ctx.moveTo( - ( height * 0.046875 ), 0 );
         ctx.lineTo( height * 0.34375, 0 );
+        ctx.shadowColor = '#4A4A4A';
+        ctx.shadowOffsetX = 1;
+        ctx.shadowOffsetY = 1;
+        ctx.shadowBlur = 1;
         ctx.stroke();
         ctx.restore();
 
@@ -101,17 +135,20 @@
         ctx.rotate(
             (( seconds - 15 ) * Math.PI ) / 30
         );
-        ctx.strokeStyle = silveryGradient;
-        ctx.fillStyle = silveryGradient;
+        ctx.strokeStyle = '#A1A1A1';
+        ctx.fillStyle = '#A1A1A1';
         ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
         ctx.beginPath();
         ctx.moveTo( - ( height * 0.046875 ), 0 );
         ctx.lineTo( height * 0.375, 0 );
+        ctx.shadowColor = '#4A4A4A';
+        ctx.shadowOffsetX = 1;
+        ctx.shadowOffsetY = 1;
+        ctx.shadowBlur = 1;
         ctx.stroke();
-        ctx.beginPath();
         ctx.arc( 0, 0, 8, 0, Math.PI * 2, true );
         ctx.fill();
-        ctx.beginPath();
         ctx.restore();
 
         window.requestAnimationFrame( drawClock );

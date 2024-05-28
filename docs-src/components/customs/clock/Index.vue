@@ -70,12 +70,12 @@
         ctx.translate( width / 2, height / 2 );
         ctx.rotate(
             ( Math.PI / 6 ) * ( hours - 3 )
-            //  + ( Math.PI / 360 ) * minutes + ( Math.PI / 21600 ) * seconds
+             + ( Math.PI / 360 ) * minutes + ( Math.PI / 21600 ) * seconds
         );
         ctx.lineWidth = 5;
         ctx.beginPath();
         ctx.strokeStyle = silveryGradient;
-        ctx.moveTo( -( height * 0.046875 ), 0 );
+        ctx.moveTo( - ( height * 0.046875 ), 0 );
         ctx.lineTo( height * 0.2375, 0 );
         ctx.stroke();
         ctx.restore();
@@ -90,7 +90,7 @@
         ctx.lineWidth = 3;
         ctx.beginPath();
         ctx.strokeStyle = silveryGradient;
-        ctx.moveTo( -( height * 0.046875 ), 0 );
+        ctx.moveTo( - ( height * 0.046875 ), 0 );
         ctx.lineTo( height * 0.34375, 0 );
         ctx.stroke();
         ctx.restore();
@@ -105,7 +105,7 @@
         ctx.fillStyle = silveryGradient;
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.moveTo( -( height * 0.046875 ), 0 );
+        ctx.moveTo( - ( height * 0.046875 ), 0 );
         ctx.lineTo( height * 0.375, 0 );
         ctx.stroke();
         ctx.beginPath();
@@ -117,7 +117,6 @@
         window.requestAnimationFrame( drawClock );
     }
 
-    let intervalId: NodeJS.Timeout;
     const onWindowResize = () => {
         ( canvasRef.value as HTMLCanvasElement ).width = ( wrapper.value as HTMLDivElement ).clientWidth;
         ( canvasRef.value as HTMLCanvasElement ).height = ( wrapper.value as HTMLDivElement ).clientHeight;
@@ -132,8 +131,5 @@
 </script>
 
 <style scoped>
-    /* .clock-wrapper canvas {
-        width: 100%;
-        height: 100%;
-    } */
+    
 </style>

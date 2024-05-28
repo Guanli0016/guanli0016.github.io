@@ -8,9 +8,9 @@ const config: UserConfig<DefaultTheme.Config> = {
 
     // 应用级配置选项
     lang: 'en-US',
-    title: 'Guanli Site',
+    title: '刘冠立的个人空间',
     titleTemplate: ':title | Guanli Site',
-    description: 'liuguanli homepage',
+    description: '刘冠立的个人空间',
     outDir: '../docs',
     appearance: 'force-dark',
     cleanUrls: true,
@@ -32,7 +32,7 @@ const config: UserConfig<DefaultTheme.Config> = {
     themeConfig: {
         i18nRouting: false,
         logo: '/images/liu-logo.jpg',
-        siteTitle: 'Guanli的个人主页',
+        siteTitle: '刘冠立的个人空间',
         nav: navigator,
         sidebar: sidebar,
         socialLinks: [
@@ -46,7 +46,7 @@ const config: UserConfig<DefaultTheme.Config> = {
     markdown: {
         lineNumbers: true,
         theme: 'slack-dark'
-    }
+    },
 }
 
 export default defineConfig( config );

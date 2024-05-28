@@ -1,15 +1,15 @@
 ---
     layout: doc
 
-    title: 照片
+    title: 我的相册
 ---
 
 <PageWrapper>
-    <PhotoItem v-for='(image, index) in photos' :photo='fullurl(image)' :index='index'></PhotoItem>
+    <PhotoItem v-for='(image, index) in photos' :photo='image' :index='index'></PhotoItem>
 </PageWrapper>
 
 <script setup lang='ts'>
-    import { ref, computed } from 'vue';
+    import { ref } from 'vue';
     import { useData } from 'vitepress';
 
     import PageWrapper from '../../components/PageWrapper.vue';
@@ -20,12 +20,7 @@
     const { subject, category } = params.value;
 
     const photos: string[] = photoConfig.items.find(( item: string ) => item.text === subject ).items.find(( item: string ) => item.text === category ).items;
-
-    const fullurl = computed(() => {
-        return function( url: string ) {
-            return `/photos/${ url }`;
-        }
-    });
+    
 </script>
 
 <style scoped>

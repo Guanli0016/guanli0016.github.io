@@ -1,7 +1,7 @@
 ---
 layout: home
 
-title: 首页
+title: 刘冠立的个人空间
 
 hero:
   name: Guanli

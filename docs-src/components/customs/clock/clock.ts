@@ -1,106 +1,132 @@
-export const clock = () => {
-    const canvas: HTMLCanvasElement = document.getElementById("myCanvas") as HTMLCanvasElement;
-    const ctx: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D;
-    const now: Date = new Date();
+let canvas: HTMLCanvasElement;
+let ctx: CanvasRenderingContext2D;
+let width: number;
+let height: number;
+let radius: number;
 
-    const width: number = canvas.width;
-    const height: number = canvas.height;
-    const fw: number = width / 8;
-    const numerals: string[] = [ 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII' ];
+export const drawClock = ( cv: HTMLCanvasElement ): void => {
+    canvas = cv;
+    ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+    window.requestAnimationFrame( draw );
+}
 
-    const silveryGradient: CanvasGradient = ctx.createLinearGradient( 0, height, width, 0 );
-    silveryGradient.addColorStop( 0, '#A4A4A4' );
-    silveryGradient.addColorStop( 1, '#FFFFFF' );
-    
-    const bgGradient: CanvasGradient = ctx.createLinearGradient( 0, height, width, 0 );
-    bgGradient.addColorStop( 0, '#800000' );
-    bgGradient.addColorStop( 1, '#A52A2A' );
+const draw = (): void => {
+    width = canvas.width;
+    height = canvas.height;
+    radius = width / 2;
 
-    ctx.save();
     ctx.clearRect( 0, 0, width, height );
-    ctx.translate( width / 2, height / 2 );
-
-    // 表盘
-    ctx.beginPath();
-    ctx.lineWidth = fw;
-    ctx.strokeStyle = silveryGradient;
-    ctx.fillStyle = bgGradient;
-    ctx.arc( 0, 0, width / 2 - fw / 2, 0, Math.PI * 2 );
-    ctx.stroke();
-    ctx.fill();
-    ctx.closePath();
+    ctx.save();
+    ctx.translate( radius, radius );
+    ctx.scale( 0.95, 0.95 );
+    drawFace( ctx, radius );
+    drawNumbers( ctx, radius );
+    drawTime( ctx, radius );
     ctx.restore();
 
-    // 数字刻度
-    ctx.save();
-    ctx.translate( width / 2, height / 2 );
-    for ( let i = 0; i < numerals.length; i++ ) {
-        const text: TextMetrics = ctx.measureText( numerals[i] );
+    window.requestAnimationFrame( draw );
+}
+
+const drawFace = ( ctx: CanvasRenderingContext2D, radius: number ): void => {
+
+    // Draw outer silver circle
+    ctx.beginPath();
+    ctx.arc( 0, 0, radius, 0, 2 * Math.PI );
+    ctx.fillStyle = '#C0C0C0';
+    ctx.fill();
+
+    // Create a gradient for the 3D effect
+    let grad: CanvasGradient = ctx.createRadialGradient( 0, 0, radius * 0.95, 0, 0, radius * 1.05 );
+    grad.addColorStop( 0, '#C0C0C0' );
+    grad.addColorStop( 0.5, 'white' );
+    grad.addColorStop( 1, '#C0C0C0' );
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = radius * 0.1;
+    ctx.stroke();
+
+    // Draw inner maroon circle
+    ctx.beginPath();
+    ctx.arc( 0, 0, radius * 0.9, 0, 2 * Math.PI );
+    ctx.fillStyle = '#800000';
+    ctx.fill();
+
+    // Draw center cap
+    ctx.beginPath();
+    ctx.arc( 0, 0, radius * 0.09, 0, 2 * Math.PI );
+    ctx.fillStyle = '#333';
+    ctx.fill();
+
+    // Draw tick marks
+    for ( let i: number = 0; i < 60; i++ ) {
+        let angle: number = ( i * Math.PI ) / 30;
+        let tickStart: number = radius * 0.85;
+        let tickEnd: number = radius * 0.9;
         ctx.beginPath();
-        ctx.font = '24px Agency FB';
-        ctx.strokeStyle = silveryGradient;
-        ctx.lineWidth = 1;
-        ctx.rotate( Math.PI / 6 );
-        ctx.strokeText( numerals[i], -text.width / 2, -120 );
+        ctx.lineWidth = ( i % 5 === 0 ) ? 3 : 1;
+        ctx.moveTo( tickStart * Math.cos( angle ), tickStart * Math.sin( angle ));
+        ctx.lineTo( tickEnd * Math.cos( angle ), tickEnd * Math.sin( angle ));
+        ctx.stroke();
     }
-    ctx.restore();
+}
 
-    const seconds = now.getSeconds();
-    // 要显示扫秒式的时钟，请使用：
-    // const seconds = now.getSeconds() + now.getMilliseconds() / 1000;
-    const minutes = now.getMinutes();
-    const hours = now.getHours() % 12;
+const drawNumbers = ( ctx: CanvasRenderingContext2D, radius: number ): void => {
+    ctx.font = `${ radius * 0.18 }px Brush Script MT`;
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#C0C0C0'; // Silver color for numbers
 
-    // 时针
-    ctx.save();
-    ctx.translate( width / 2, height / 2 );
-    ctx.rotate(
-        ( Math.PI / 6 ) * ( hours - 3 )
-        //  + ( Math.PI / 360 ) * minutes + ( Math.PI / 21600 ) * seconds
-    );
-    ctx.lineWidth = 5;
-    ctx.beginPath();
-    ctx.strokeStyle = silveryGradient;
-    ctx.moveTo( -15, 0 );
-    ctx.lineTo( 76, 0 );
-    ctx.stroke();
-    ctx.restore();
+    const numerals: string[] = [ '', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII' ];
 
-    // 分针
-    ctx.save();
-    ctx.translate( width / 2, height / 2 );
-    ctx.rotate(
-        ( Math.PI / 30 ) * ( minutes - 15 )
-        //  + ( Math.PI / 1800 ) * seconds
-    );
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.strokeStyle = silveryGradient;
-    ctx.moveTo( -15, 0 );
-    ctx.lineTo( 110, 0 );
-    ctx.stroke();
-    ctx.restore();
+    for ( let num: number = 1; num <= 12; num++ ) {
+        const ang: number = num * Math.PI / 6;
+        ctx.rotate( ang );
+        ctx.translate( 0, -radius * 0.75 );
+        ctx.rotate( -ang );
+        ctx.fillText( num.toString(), 0, 0 );
+        ctx.rotate( ang );
+        ctx.translate( 0, radius * 0.75 );
+        ctx.rotate( -ang );
+    }
+}
 
-    // 秒针
-    ctx.save();
-    ctx.translate( width / 2, height / 2 );
-    ctx.rotate(
-        (( seconds - 15 ) * Math.PI ) / 30
-    );
-    ctx.strokeStyle = silveryGradient;
-    ctx.fillStyle = silveryGradient;
-    ctx.lineWidth = 2;
+const drawTime = ( ctx: CanvasRenderingContext2D, radius: number ): void => {
+    const now: Date = new Date();
+    const hour: number = now.getHours() % 12;
+    const minute: number = now.getMinutes();
+    const second: number = now.getSeconds();
+
+    // Hour hand
+    let hourPos: number = ( hour + minute / 60 ) * Math.PI / 6;
+    drawHand( ctx, hourPos, radius * 0.5, radius * 0.05 );
+
+    // Minute hand
+    let minutePos: number = ( minute + second / 60 ) * Math.PI / 30;
+    drawHand( ctx, minutePos, radius * 0.8, radius * 0.035 );
+
+    // Second hand
+    let secondPos: number = second * Math.PI / 30;
+    drawHand( ctx, secondPos, radius * 0.9, radius * 0.015, '#FF0000' );
+
+    // Draw center cap
     ctx.beginPath();
-    ctx.moveTo( -15, 0 );
-    ctx.lineTo( 120, 0 );
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc( 0, 0, 8, 0, Math.PI * 2, true );
+    ctx.arc( 0, 0, radius * 0.055, 0, 2 * Math.PI );
+    ctx.fillStyle = '#F00';
     ctx.fill();
+}
+
+const drawHand = ( ctx: CanvasRenderingContext2D, pos: number, length: number, width: number, color: string = '#333' ):void => {
+    ctx.save();
+    ctx.rotate( pos );
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetX = 3;
+    ctx.shadowOffsetY = 3;
     ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = color;
+    ctx.moveTo( 0, 20 );
+    ctx.lineTo( 0, -length );
+    ctx.stroke();
     ctx.restore();
-
-    
-
-    window.requestAnimationFrame(clock);
 }

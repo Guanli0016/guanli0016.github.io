@@ -1,6 +1,6 @@
 <template>
     <div class='photo-item' @click='onPhotoView'>
-        <img :src='photo' :alt='photo'/>
+        <img loading="lazy" :src='photo' :alt='photo'/>
     </div>
 </template>
 

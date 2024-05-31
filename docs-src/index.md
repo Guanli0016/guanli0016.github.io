@@ -4,12 +4,12 @@ layout: home
 title: 刘冠立的个人空间
 
 hero:
-  name: Guanli
-  text: Home Page
+  name: 刘冠立
+  text: 我很懒，不知道写点啥
   tagline: 事能知足心常泰，人到无求品自高
   image:
-    src: /images/logo.png
-    alt: Guanli
+    # src: /images/logo.png
+    alt: clock
   actions:
     - theme: brand
       text: 学习笔记

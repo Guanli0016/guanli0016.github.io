@@ -29,6 +29,10 @@ const draw = (): void => {
 
 const drawFace = ( ctx: CanvasRenderingContext2D, radius: number ): void => {
 
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
     // Draw outer silver circle
     ctx.beginPath();
     ctx.arc( 0, 0, radius, 0, 2 * Math.PI );
@@ -61,6 +65,10 @@ const drawFace = ( ctx: CanvasRenderingContext2D, radius: number ): void => {
         let angle: number = ( i * Math.PI ) / 30;
         let tickStart: number = radius * 0.85;
         let tickEnd: number = radius * 0.9;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+        ctx.shadowBlur = 6;
+        ctx.shadowOffsetX = 3;
+        ctx.shadowOffsetY = 3;
         ctx.beginPath();
         ctx.lineWidth = ( i % 5 === 0 ) ? 3 : 1;
         ctx.moveTo( tickStart * Math.cos( angle ), tickStart * Math.sin( angle ));
@@ -70,12 +78,16 @@ const drawFace = ( ctx: CanvasRenderingContext2D, radius: number ): void => {
 }
 
 const drawNumbers = ( ctx: CanvasRenderingContext2D, radius: number ): void => {
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 6;
+    ctx.shadowOffsetX = 3;
+    ctx.shadowOffsetY = 3;
     ctx.font = `${ radius * 0.18 }px Brush Script MT`;
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
     ctx.fillStyle = '#C0C0C0'; // Silver color for numbers
 
-    const numerals: string[] = [ '', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII' ];
+    // const numerals: string[] = [ '', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII' ];
 
     for ( let num: number = 1; num <= 12; num++ ) {
         const ang: number = num * Math.PI / 6;
@@ -118,7 +130,7 @@ const drawHand = ( ctx: CanvasRenderingContext2D, pos: number, length: number, w
     ctx.save();
     ctx.rotate( pos );
     ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-    ctx.shadowBlur = 5;
+    ctx.shadowBlur = 6;
     ctx.shadowOffsetX = 3;
     ctx.shadowOffsetY = 3;
     ctx.beginPath();

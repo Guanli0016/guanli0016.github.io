@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from 'node:url';
 import { DefaultTheme, UserConfig, defineConfig } from 'vitepress';
 
 import navigator from '../configs/theme/navigator';
-import sidebar from '../configs/theme/sidebar'
+import sidebar from '../configs/theme/sidebar';
 
 const config: UserConfig<DefaultTheme.Config> = {
 
@@ -14,6 +14,10 @@ const config: UserConfig<DefaultTheme.Config> = {
     outDir: '../docs',
     appearance: 'force-dark',
     cleanUrls: true,
+
+    head: [
+        ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
+    ],
 
     vite: {
         resolve: {
@@ -43,10 +47,10 @@ const config: UserConfig<DefaultTheme.Config> = {
             copyright: 'Copyright © 2024-present Guanli'
         },
     },
-    markdown: {
-        lineNumbers: true,
-        theme: 'slack-dark'
-    },
+    // markdown: {
+    //     lineNumbers: true,
+    //     theme: 'slack-dark'
+    // },
 }
 
 export default defineConfig( config );

@@ -45,6 +45,12 @@ const sidebar = {
             items: [
                 { text: '二维码生成器', link: '/guides/tools/builder/qrcode' },
             ]
+        }, {
+            text: '地图',
+            collapsed: true,
+            items: [
+                { text: '高德地图', link: '/guides/tools/map/amap' },
+            ]
         }
     ],
 }

@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.BpJaoy_F.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guides/tools/map/bmap.md","filePath":"guides/tools/map/bmap.md"}'),o={name:"guides/tools/map/bmap.md"};function s(p,r,m,c,n,d){return a(),t("div")}const l=e(o,[["render",s]]);export{_ as __pageData,l as default};

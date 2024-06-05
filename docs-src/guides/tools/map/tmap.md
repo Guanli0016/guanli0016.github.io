@@ -17,10 +17,10 @@
 
         const container: HTMLDivElement = document.getElementById('container');
         //定义地图中心点坐标
-        var center = new TMap.LatLng( centerLat, centerLng );
+        const center = new TMap.LatLng( centerLat, centerLng );
 
         //定义map变量，调用 TMap.Map() 构造函数创建地图
-        var map = new TMap.Map( container, {
+        const tmap = new TMap.Map( container, {
             center: center, // 设置地图中心点坐标
             zoom: 12,       // 设置地图缩放级别
             viewMode: '3D' // 3D视图

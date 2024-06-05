@@ -8,6 +8,10 @@ export const AMapConfig: MapConfig = {
     security: '0f157cda8ca8057521806c751d778a62'
 }
 
+export const BMapConfig: MapConfig = {
+    key: 'HhiTbR2D5EruvWZBtB7AT7WtRQ0nNQXL',
+}
+
 export const TMapConfig: MapConfig = {
     key: 'IUPBZ-IWS34-33XUV-F36G4-7ZO36-Y7FUF',
 }

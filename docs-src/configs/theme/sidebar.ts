@@ -50,6 +50,7 @@ const sidebar = {
             collapsed: true,
             items: [
                 { text: '高德地图', link: '/guides/tools/map/amap' },
+                { text: '百度地图', link: '/guides/tools/map/bmap' },
                 { text: '腾讯地图', link: '/guides/tools/map/tmap' },
             ]
         }

@@ -7,20 +7,20 @@
 
 <script setup lang='ts'>
     import { onMounted, onUnmounted } from 'vue';
-    import { AMap } from '../../../configs/map/maps';
+    import { AMapConfig } from '../../../configs/map/maps';
 
     window._AMapSecurityConfig = {
-        securityJsCode: AMap.security
+        securityJsCode: AMapConfig.security
     }
 
     let amap: any = null;
-    let centerX: number = 116.397428;
-    let centerY: number = 39.90923;
+    let centerLng: number = 116.397428;
+    let centerLat: number = 39.90923;
     let AMapLoader: any = null;
 
     const initMap = () => {
         AMapLoader.load({
-            key: AMap.key,
+            key: AMapConfig.key,
             version: '2.0',
             plugins: [
                 'AMap.ElasticMarker',
@@ -60,8 +60,8 @@
         }).then(( AMap: any ) => {
             amap = new AMap.Map('container', {
                 viewMode: '3D',
-                zoom: 11,
-                center: [ centerX, centerY ],
+                zoom: 12,
+                center: [ centerLng, centerLat ],
             });
 
             // 工具条，控制地图的缩放、平移等
@@ -123,9 +123,5 @@
         width: 100%;
         height: 600px;
         margin: 30px auto 0;
-    }
-    :global(.amap-controls),
-    :global(.amap-toolbar) {
-        z-index: 0;
     }
 </style>

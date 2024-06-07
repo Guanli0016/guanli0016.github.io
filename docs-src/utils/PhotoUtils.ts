@@ -1,6 +1,6 @@
 type ConfigItem = {
     text: string,
-    items: (ConfigItem | string)[]
+    items: ( ConfigItem | string )[]
 }
 
 export const buildPhotoConfig = ( files: FileList ): any => {

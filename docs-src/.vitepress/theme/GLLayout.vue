@@ -1,6 +1,6 @@
 <template>
 	<Layout></Layout>
-	<!-- <GLPlayer></GLPlayer> -->
+	<GLPlayer></GLPlayer>
 </template>
 
 <script setup lang="ts">

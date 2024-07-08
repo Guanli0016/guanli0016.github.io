@@ -10,6 +10,14 @@ const sidebar = {
             ]
         }
     ],
+    '/guides/effects': [
+        {
+            text: '效果',
+            items: [
+                { text: '星空', link: '/guides/effects/starry' },
+            ]
+        }, 
+    ],
     '/guides/tools': [
         {
         //     text: '在线格式化工具',

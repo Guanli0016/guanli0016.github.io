@@ -3,7 +3,6 @@
         <audio 
             preload="metadata"
             ref="player"
-            id="audio"
             @play="onAudioPlayed"
             @pause="onAudioPaused"
             @ended="onAudioEnded">
@@ -27,6 +26,7 @@
     const autoplay: boolean = true;
 
     const togglePlay = () => {
+        console.log(player.value);
         if ( player.value.paused ) {
             player.value.play();
         } else {
@@ -50,11 +50,12 @@
     }
 
     const waitActived = ( evt: MouseEvent ) => {
-        document.removeEventListener( 'mousedown', waitActived );
+        // document.removeEventListener( 'mousedown', waitActived );
         if ( evt.target === wrapper.value ) {
             return;
         }
         setTimeout(() => {
+            console.log(player.value);
             player.value.play();
         });
     }
@@ -62,9 +63,13 @@
     onMounted(() => {
         if ( autoplay ) {
             player.value.load();
-            player.value.play().catch(() => {
+            player.value.play().then(() => {
+                console.log("play success");
+            }).catch(() => {
                 console.log( "play faile" );
-                document.addEventListener( 'mousedown', waitActived );
+                document.addEventListener( 'mousedown', waitActived, {
+                    once: true
+                });
             });
         }
     })

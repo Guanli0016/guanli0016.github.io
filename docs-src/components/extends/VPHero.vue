@@ -30,7 +30,7 @@
                 <slot name="home-hero-info-before" />
                 <slot name="home-hero-info">
                     <h1 v-if="name" class="name">
-                        <span v-html="name" class="clip"></span>
+                        <span v-for="l in name" v-html="l" class="clip"></span>
                     </h1>
                     <p v-if="text" v-html="text" class="text"></p>
                     <p v-if="tagline" v-html="tagline" class="tagline"></p>
@@ -61,6 +61,7 @@
 
 <style scoped>
     .VPHero {
+        font-family: ALMM-FYT;
         margin-top: calc((var(--vp-nav-height) + var(--vp-layout-top-height, 0px)) * -1);
         padding: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 48px) 24px 48px;
     }
@@ -142,7 +143,19 @@
         background: var(--vp-home-hero-name-background);
         -webkit-background-clip: text;
         background-clip: text;
-        -webkit-text-fill-color: var(--vp-home-hero-name-color);
+        /* -webkit-text-fill-color: var(--vp-home-hero-name-color); */
+        color: #faebd7;
+        letter-spacing: 6px;
+        animation: spread 0.6s ease-in-out infinite alternate;
+    }
+    .clip:nth-child(1) {
+        animation-delay: 0s;
+    }
+    .clip:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    .clip:nth-child(3) {
+        animation-delay: 0.4s;
     }
 
     @media (min-width: 640px) {
@@ -150,7 +163,7 @@
         .name,
         .text {
             max-width: 576px;
-            line-height: 56px;
+            line-height: 56px; 
             font-size: 48px;
         }
     }
@@ -325,6 +338,13 @@
         :deep(.image-src) {
             width: 320px;
             height: 320px;
+        }
+    }
+
+    @keyframes spread {
+        to {
+            color: #a8b1ff;
+            text-shadow: 0 0 5px #a8b1ff;
         }
     }
 </style>

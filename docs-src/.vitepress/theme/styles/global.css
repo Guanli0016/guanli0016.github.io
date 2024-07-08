@@ -1,6 +1,6 @@
 :root {
-    --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: linear-gradient(120deg, #bd34fe 30%, #41d1ff);
+    /* --vp-home-hero-name-color: transparent; */
+    /* --vp-home-hero-name-background: linear-gradient(120deg, #bd34fe 30%, #41d1ff); */
 
     /* --vp-home-hero-image-background-image: linear-gradient(-45deg, #333 0, #CCC 100%);
     --vp-home-hero-image-filter: blur(100px); */
@@ -60,4 +60,43 @@ button.GLButton[blue] {
     background-color: field;
     border-color: var(--vp-c-divider) !important;
     border-radius: 0 4px 4px 0 !important;
+}
+
+@font-face {
+    font-family: 'HLXS';
+    src: url(../../../public//fonts/HongLeiXingShuJianTi-2.otf);
+}
+
+@font-face {
+    font-family: 'PFLJ';
+    src: url(../../../public//fonts/PingFangLaiJiangHuFeiYangTi-2.ttf);
+}
+
+@font-face {
+    font-family: 'ALMM-FYT';
+    src: url(../../../public//fonts/AlimamaFangYuanTiVF-Thin-2.ttf);
+}
+
+@font-face {
+    font-family: 'BSMT';
+    src: url(../../../public//fonts/BrushScriptMT.ttf);
+}
+
+.desktop-pointer {
+    position: absolute;
+    pointer-events: none;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    z-index: 100;
+    animation: pointer 0.3s linear forwards;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes pointer {
+    to {
+        width: 50px;
+        height: 50px;
+    }
 }

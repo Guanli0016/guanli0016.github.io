@@ -82,7 +82,7 @@ const drawNumbers = ( ctx: CanvasRenderingContext2D, radius: number ): void => {
     ctx.shadowBlur = 6;
     ctx.shadowOffsetX = 3;
     ctx.shadowOffsetY = 3;
-    ctx.font = `${ radius * 0.18 }px Brush Script MT`;
+    ctx.font = `${ radius * 0.18 }px BSMT`;
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
     ctx.fillStyle = '#C0C0C0'; // Silver color for numbers

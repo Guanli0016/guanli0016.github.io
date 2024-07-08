@@ -5,7 +5,7 @@ title: 刘冠立的个人空间
 
 hero:
   name: 刘冠立
-  text: 我很懒，不知道写点啥
+  text: 我的个人主页
   tagline: 事能知足心常泰，人到无求品自高
   image:
     # src: /images/logo.png

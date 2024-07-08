@@ -1,5 +1,6 @@
 ---
     layout: doc
+    aside: false
 
     title: 我的相册
 ---
@@ -24,7 +25,5 @@
 </script>
 
 <style scoped>
-    img {
-        border-radius: 4px;
-    }
+    
 </style>

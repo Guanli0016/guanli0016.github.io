@@ -3,8 +3,10 @@ import ElementPlus from 'element-plus';
 import GLPlayer from '../../components/ui/GLPlayer.vue';
 import GLLayout from './GLLayout.vue';
 
+// import './scripts/pointer';
+
 import './styles/global.css';
-import 'element-plus/dist/index.css'
+import 'element-plus/dist/index.css';
 
 export default {
     ...DefaultTheme,

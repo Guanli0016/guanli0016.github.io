@@ -30,10 +30,17 @@
                 <slot name="home-hero-info-before" />
                 <slot name="home-hero-info">
                     <h1 v-if="name" class="name">
-                        <span v-for="l in name" v-html="l" class="clip"></span>
+                        <!-- <video src="/videos/fire.mp4" autoplay muted loop></video> -->
+                        <p class="name-text">
+                            <span v-for="l in name" v-html="l" class="clip"></span>
+                        </p>
                     </h1>
-                    <p v-if="text" v-html="text" class="text"></p>
-                    <p v-if="tagline" v-html="tagline" class="tagline"></p>
+                    <p v-if="text" class="text">
+                        <span v-for="l in text" v-html="l" class="clip"></span>
+                    </p>
+                    <p v-if="tagline" class="tagline">
+                        <span v-for="l in tagline" v-html="l" class="clip"></span>
+                    </p>
                 </slot>
                 <slot name="home-hero-info-after" />
 
@@ -137,25 +144,64 @@
 
     .name {
         color: var(--vp-home-hero-name-color);
+        position: relative;
     }
 
-    .clip {
-        background: var(--vp-home-hero-name-background);
+    .name video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+    }
+    .name .name-text {
+        background-color: transparent;
+        color: var(--vp-home-hero-name-color);
+        position: relative;
+        /* mix-blend-mode: screen; */
+        display: flex;
+        justify-content: center;
+    }
+    
+    .name .name-text .clip {
+        letter-spacing: 6px;
+        transform-origin: bottom;
+        animation: jump 4.8s linear infinite;
+    }
+    .name .name-text .clip:nth-child(1) {
+        animation-delay: 0;
+    }
+    .name .name-text .clip:nth-child(2) {
+        animation-delay: 1.6s;
+    }
+    .name .name-text .clip:nth-child(3) {
+        animation-delay: 3.2s;
+    }
+    
+    .text .clip {
+        background-color: var(--vp-c-bg);
         -webkit-background-clip: text;
         background-clip: text;
         /* -webkit-text-fill-color: var(--vp-home-hero-name-color); */
-        color: #faebd7;
         letter-spacing: 6px;
-        animation: spread 0.6s ease-in-out infinite alternate;
+        animation: spread 2s ease-in-out infinite alternate;
     }
-    .clip:nth-child(1) {
+    .text .clip:nth-child(1) {
         animation-delay: 0s;
     }
-    .clip:nth-child(2) {
+    .text .clip:nth-child(2) {
         animation-delay: 0.2s;
     }
-    .clip:nth-child(3) {
+    .text .clip:nth-child(3) {
         animation-delay: 0.4s;
+    }
+    .text .clip:nth-child(4) {
+        animation-delay: 0.6s;
+    }
+    .text .clip:nth-child(5) {
+        animation-delay: 0.8s;
+    }
+    .text .clip:nth-child(6) {
+        animation-delay: 1s;
     }
 
     @media (min-width: 640px) {
@@ -179,6 +225,9 @@
         .VPHero.has-image .name,
         .VPHero.has-image .text {
             margin: 0;
+        }
+        .name .name-text {
+            justify-content: start;
         }
     }
 
@@ -343,8 +392,33 @@
 
     @keyframes spread {
         to {
-            color: #a8b1ff;
-            text-shadow: 0 0 5px #a8b1ff;
+            color: #bd34fe;
+            /* text-shadow: 1px 1px 2px #a8b1ff; */
         }
     }
+
+    @keyframes jump {
+        0% {
+            transform: scaleY(1);
+        }
+        15% {
+            transform: scaleY(80%);
+        }
+        18% {
+            transform: scaleY(1);
+        }
+        21% {
+            transform: translateY(-40%);
+        }
+        24% {
+            transform: translateY(0);
+        }
+        26% {
+            transform: scaleY(80%);
+        }
+        30% {
+            transform: scaleY(1);
+        }
+    }
+
 </style>

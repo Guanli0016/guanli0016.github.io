@@ -165,16 +165,17 @@
     .name .name-text .clip {
         letter-spacing: 6px;
         transform-origin: bottom;
-        animation: jump 4.8s linear infinite;
+        animation: jump 1s cubic-bezier(0.46, 0.03, 0.71, 1.51) forwards;
+        opacity: 0;
     }
     .name .name-text .clip:nth-child(1) {
         animation-delay: 0;
     }
     .name .name-text .clip:nth-child(2) {
-        animation-delay: 1.6s;
+        animation-delay: 0.2s;
     }
     .name .name-text .clip:nth-child(3) {
-        animation-delay: 3.2s;
+        animation-delay: 0.4s;
     }
     
     .text .clip {
@@ -398,26 +399,13 @@
     }
 
     @keyframes jump {
-        0% {
-            transform: scaleY(1);
+        from {
+            transform: translateY(300%);
+            opacity: 0;
         }
-        15% {
-            transform: scaleY(80%);
-        }
-        18% {
-            transform: scaleY(1);
-        }
-        21% {
-            transform: translateY(-40%);
-        }
-        24% {
+        to {
             transform: translateY(0);
-        }
-        26% {
-            transform: scaleY(80%);
-        }
-        30% {
-            transform: scaleY(1);
+            opacity: 1;
         }
     }
 

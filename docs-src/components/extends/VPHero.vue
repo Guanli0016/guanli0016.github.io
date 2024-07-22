@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { type Ref, inject } from 'vue'
+    import { type Ref, inject, onMounted, ref } from 'vue'
     import type { DefaultTheme } from 'vitepress/theme'
     import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
     import Clock from '../customs/clock/Index.vue';
@@ -21,6 +21,36 @@
     }>()
 
     const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>
+
+
+    const initName = () => {
+        const interval: number = 0.2;
+        const nameText = document.querySelectorAll('.clip');
+        for ( let [ i, span ] of nameText.entries() ) {
+            const delay: string = (interval * i).toFixed(1);
+            (span as HTMLSpanElement).style.setProperty('--delay', `${ delay }s`);
+        }
+       
+    }
+
+    const initTagline = () => {
+        const tagline = document.querySelector('.tagline') as HTMLElement;
+        const interval = 0.2;
+        const length = tagline.children.length;
+        tagline.style.setProperty('--interval', `${ interval }s`);
+        tagline.style.setProperty('--length', `${ length }`);
+        for ( let i: number = 0; i < length; i++ ) {
+            const span: HTMLSpanElement = tagline.children[i] as HTMLSpanElement;
+            const delay: string = (interval * i).toFixed(1);
+            span.style.setProperty('--delay', `${ delay }s`);
+        }
+    }
+
+    onMounted(() => {
+        initName();
+        initTagline();
+    })
+
 </script>
 
 <template>
@@ -39,7 +69,7 @@
                         <span v-for="l in text" v-html="l" class="clip"></span>
                     </p>
                     <p v-if="tagline" class="tagline">
-                        <span v-for="l in tagline" v-html="l" class="clip"></span>
+                        <span v-for="l in tagline" v-html="l" class="tagline-clip"></span>
                     </p>
                 </slot>
                 <slot name="home-hero-info-after" />
@@ -142,67 +172,44 @@
         margin: 0 auto;
     }
 
-    .name {
-        color: var(--vp-home-hero-name-color);
-        position: relative;
-    }
-
-    .name video {
+    /* .name video {
         width: 100%;
         height: 100%;
         object-fit: cover;
         position: absolute;
-    }
-    .name .name-text {
+    } */
+    
+    .name-text {
         background-color: transparent;
-        color: var(--vp-home-hero-name-color);
-        position: relative;
-        /* mix-blend-mode: screen; */
+        color: var(--docsearch-primary-color);
         display: flex;
         justify-content: center;
     }
-    
-    .name .name-text .clip {
+    .text {
+        background-color: transparent;
+        color: var(--vp-c-danger-1);
+        display: flex;
+        justify-content: center;
+    }
+    .clip {
         letter-spacing: 6px;
         transform-origin: bottom;
         animation: jump 1s cubic-bezier(0.46, 0.03, 0.71, 1.51) forwards;
         opacity: 0;
     }
-    .name .name-text .clip:nth-child(1) {
-        animation-delay: 0;
+    .clip:nth-child(n) {
+        animation-delay: var(--delay);
     }
-    .name .name-text .clip:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-    .name .name-text .clip:nth-child(3) {
-        animation-delay: 0.4s;
-    }
-    
-    .text .clip {
+
+    .tagline .tagline-clip {
+        font-weight: bold;
         background-color: var(--vp-c-bg);
         -webkit-background-clip: text;
         background-clip: text;
-        /* -webkit-text-fill-color: var(--vp-home-hero-name-color); */
-        letter-spacing: 6px;
-        animation: spread 2s ease-in-out infinite alternate;
+        animation: spread calc(var(--interval) * var(--length)) ease-in-out infinite alternate;
     }
-    .text .clip:nth-child(1) {
-        animation-delay: 0s;
-    }
-    .text .clip:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-    .text .clip:nth-child(3) {
-        animation-delay: 0.4s;
-    }
-    .text .clip:nth-child(4) {
-        animation-delay: 0.6s;
-    }
-    .text .clip:nth-child(5) {
-        animation-delay: 0.8s;
-    }
-    .text .clip:nth-child(6) {
-        animation-delay: 1s;
+    .tagline .tagline-clip:nth-child(n) {
+        animation-delay: var(--delay);
     }
 
     @media (min-width: 640px) {
@@ -227,7 +234,8 @@
         .VPHero.has-image .text {
             margin: 0;
         }
-        .name .name-text {
+        .name-text,
+        .text {
             justify-content: start;
         }
     }
@@ -393,7 +401,7 @@
 
     @keyframes spread {
         to {
-            color: #bd34fe;
+            color: #0e75b1;
             /* text-shadow: 1px 1px 2px #a8b1ff; */
         }
     }

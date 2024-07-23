@@ -26,7 +26,6 @@
     const autoplay: boolean = true;
 
     const togglePlay = () => {
-        console.log(player.value);
         if ( player.value.paused ) {
             player.value.play();
         } else {
@@ -55,7 +54,6 @@
             return;
         }
         setTimeout(() => {
-            console.log(player.value);
             player.value.play();
         });
     }

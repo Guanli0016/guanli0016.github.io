@@ -27,6 +27,12 @@ const config: UserConfig<DefaultTheme.Config> = {
                     replacement: fileURLToPath(
                         new URL( '../components/extends/VPHero.vue', import.meta.url )
                     )
+                },
+                {
+                    find: /^.*\/VPFeature\.vue$/,
+                    replacement: fileURLToPath(
+                        new URL( '../components/extends/VPFeature.vue', import.meta.url )
+                    )
                 }
             ]
         }

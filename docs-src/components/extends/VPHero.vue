@@ -22,32 +22,35 @@
 
     const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>
 
+    const nameRef = ref<HTMLParagraphElement>();
+    const textRef = ref<HTMLParagraphElement>();
+    const taglineRef = ref<HTMLParagraphElement>();
 
-    const initName = () => {
+    const initNameAndText = () => {
         const interval: number = 0.2;
-        const nameText = document.querySelectorAll('.clip');
-        for ( let [ i, span ] of nameText.entries() ) {
-            const delay: string = (interval * i).toFixed(1);
-            (span as HTMLSpanElement).style.setProperty('--delay', `${ delay }s`);
+        const nameContainer: HTMLParagraphElement = nameRef.value as HTMLParagraphElement;
+        const textContainer: HTMLParagraphElement = textRef.value as HTMLParagraphElement;
+        const spans: Element[] = [ ...nameContainer.children, ...textContainer.children ];
+        for ( const [ i, span ] of spans.entries() ) {
+            const delay: string = ( interval * i ).toFixed(1);
+            ( span as HTMLSpanElement ).style.setProperty('--delay', `${ delay }s`);
         }
-       
     }
 
     const initTagline = () => {
-        const tagline = document.querySelector('.tagline') as HTMLElement;
-        const interval = 0.2;
-        const length = tagline.children.length;
-        tagline.style.setProperty('--interval', `${ interval }s`);
-        tagline.style.setProperty('--length', `${ length }`);
-        for ( let i: number = 0; i < length; i++ ) {
-            const span: HTMLSpanElement = tagline.children[i] as HTMLSpanElement;
-            const delay: string = (interval * i).toFixed(1);
-            span.style.setProperty('--delay', `${ delay }s`);
+        const interval: number = 0.2;
+        const container: HTMLParagraphElement = taglineRef.value as HTMLParagraphElement;
+        container.style.setProperty('--interval', `${ interval }s`);
+        container.style.setProperty('--length', `${ container.children.length }`);
+        const spans: Element[] = [ ...container.children ];
+        for ( const [ i, span ] of spans.entries() ) {
+            const delay: string = ( interval * i ).toFixed(1);
+            ( span as HTMLSpanElement ).style.setProperty('--delay', `${ delay }s`);
         }
     }
 
     onMounted(() => {
-        initName();
+        initNameAndText();
         initTagline();
     })
 
@@ -61,14 +64,14 @@
                 <slot name="home-hero-info">
                     <h1 v-if="name" class="name">
                         <!-- <video src="/videos/fire.mp4" autoplay muted loop></video> -->
-                        <p class="name-text">
+                        <p class="name-text" ref="nameRef">
                             <span v-for="l in name" v-html="l" class="clip"></span>
                         </p>
                     </h1>
-                    <p v-if="text" class="text">
+                    <p v-if="text" class="text" ref="textRef">
                         <span v-for="l in text" v-html="l" class="clip"></span>
                     </p>
-                    <p v-if="tagline" class="tagline">
+                    <p v-if="tagline" class="tagline" ref="taglineRef">
                         <span v-for="l in tagline" v-html="l" class="tagline-clip"></span>
                     </p>
                 </slot>
@@ -401,7 +404,7 @@
 
     @keyframes spread {
         to {
-            color: #0e75b1;
+            color: rgb(14, 117, 177);
             /* text-shadow: 1px 1px 2px #a8b1ff; */
         }
     }

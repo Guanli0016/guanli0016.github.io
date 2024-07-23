@@ -23,6 +23,18 @@ const config: UserConfig<DefaultTheme.Config> = {
         resolve: {
             alias: [
                 {
+                    find: /^.*\/VPContent\.vue$/,
+                    replacement: fileURLToPath(
+                        new URL( '../components/extends/VPContent.vue', import.meta.url )
+                    )
+                },
+                {
+                    find: /^.*\/VPNavBar\.vue$/,
+                    replacement: fileURLToPath(
+                        new URL( '../components/extends/VPNavBar.vue', import.meta.url )
+                    )
+                },
+                {
                     find: /^.*\/VPHero\.vue$/,
                     replacement: fileURLToPath(
                         new URL( '../components/extends/VPHero.vue', import.meta.url )
@@ -32,6 +44,12 @@ const config: UserConfig<DefaultTheme.Config> = {
                     find: /^.*\/VPFeature\.vue$/,
                     replacement: fileURLToPath(
                         new URL( '../components/extends/VPFeature.vue', import.meta.url )
+                    )
+                },
+                {
+                    find: /^.*\/VPFooter\.vue$/,
+                    replacement: fileURLToPath(
+                        new URL( '../components/extends/VPFooter.vue', import.meta.url )
                     )
                 }
             ]

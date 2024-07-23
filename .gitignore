@@ -102,6 +102,7 @@ out
 # vitepress build output
 docs/.vitepress/cache
 docs-src/.vitepress/cache
+backup/
 
 # vuepress v2.x temp and cache directory
 .temp

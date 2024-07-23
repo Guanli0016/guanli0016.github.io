@@ -85,13 +85,13 @@ export default [
                 items: [
                     { text: '二维码生成器', link: '/guides/tools/builder/qrcode' },
                 ]
-            }, {
-                text: '地图',
-                items: [
-                    { text: '高德地图', link: '/guides/tools/map/amap' },
-                    { text: '百度地图', link: '/guides/tools/map/bmap' },
-                    { text: '腾讯地图', link: '/guides/tools/map/tmap' },
-                ]
+            // }, {
+                // text: '地图',
+                // items: [
+                //     { text: '高德地图', link: '/guides/tools/map/amap' },
+                //     { text: '百度地图', link: '/guides/tools/map/bmap' },
+                //     { text: '腾讯地图', link: '/guides/tools/map/tmap' },
+                // ]
             }
         ]
     }

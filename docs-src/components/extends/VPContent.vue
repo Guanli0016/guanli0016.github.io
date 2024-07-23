@@ -159,7 +159,6 @@ $count: 512;
 		width: $size;
 		height: $size;
 		border-radius: 50%;
-		background-color: #f40;
 		box-shadow: getShadows( $count );
 		animation: move $duration linear infinite;
 		&::after {

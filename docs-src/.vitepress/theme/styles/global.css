@@ -68,16 +68,6 @@ button.GLButton[blue] {
     border-radius: 0 4px 4px 0 !important;
 }
 
-/* @font-face {
-    font-family: 'HLXS';
-    src: url(../../../public//fonts/HongLeiXingShuJianTi-2.otf);
-}
-
-@font-face {
-    font-family: 'PFLJ';
-    src: url(../../../public//fonts/PingFangLaiJiangHuFeiYangTi-2.ttf);
-} */
-
 @font-face {
     font-family: 'ALMM-FYT';
     src: url(../../../public//fonts/AlimamaFangYuanTiVF-Thin-2.ttf);

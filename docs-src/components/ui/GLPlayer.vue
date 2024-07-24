@@ -83,9 +83,11 @@
         top: 126px;
         right: 20px;
         cursor: pointer;
+        animation: rotate 2s linear 0s infinite;
+        animation-play-state: paused;
     }
     .background-sound-button.playing {
-        animation: rotate 2s linear 0s infinite;
+        animation-play-state: running;
     }
 
     @keyframes rotate {

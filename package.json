@@ -7,10 +7,11 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "publish": "npm run build && git add . && git commit -m '内容更改' && git push origin master",
+    "publish": "npm run build && git add . && git commit -m %npm_config_content% && git push origin master",
     "docs:dev": "vitepress dev docs-src",
     "docs:build": "vitepress build docs-src",
-    "docs:preview": "vitepress preview docs-src"
+    "docs:preview": "vitepress preview docs-src",
+    "greet": "echo Hello, %npm_config_word%"
   },
   "repository": {
     "type": "git",

@@ -23,7 +23,7 @@
     const randomIndex: number = Math.floor( Math.random() * sounds.length );
     const index = ref<number>( randomIndex );
     
-    const autoplay: boolean = true;
+    const autoplay: boolean = false;
 
     const togglePlay = () => {
         if ( player.value.paused ) {

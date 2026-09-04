@@ -1,6 +1,22 @@
 import photoConfig from '../../configs/photos.json';
 
-const sidebar = {
+
+const sidebar: Record<string, any[]> = {
+    '/guides/privacy/resume': [
+        {
+            text: '我的简历',
+            items: [
+                { text: '个人信息', link: '/guides/privacy/resume#个人信息' },
+                { text: '期望职位', link: '/guides/privacy/resume#期望职位' },
+                { text: '职业技能', link: '/guides/privacy/resume#职业技能' },
+                { text: '工作经历', link: '/guides/privacy/resume#工作经历' },
+                { text: '项目经历', link: '/guides/privacy/resume#项目经历' },
+                { text: '个人项目', link: '/guides/privacy/resume#个人项目' },
+                { text: '教育经历', link: '/guides/privacy/resume#教育经历' },
+                { text: '自我评价', link: '/guides/privacy/resume#自我评价' },
+            ]
+        }
+    ],
     '/guides/notes/docx': [
         {
             text: 'docx.js 使用笔记',

@@ -3,10 +3,10 @@
         <audio 
             preload="metadata"
             ref="player"
+            :src="sounds[index]"
             @play="onAudioPlayed"
             @pause="onAudioPaused"
             @ended="onAudioEnded">
-            <source :src="sounds[index]"></source>
         </audio>
     </div>
 </template>
@@ -19,15 +19,7 @@
     const player = ref();
     const wrapper = ref();
 
-    const chaos = <T>( origin: T[] ): T[] => {
-        for ( let i: number = origin.length - 1; i > 0; i-- ) {
-            const j: number = Math.floor( Math.random() * ( i + 1 ) );
-            [ origin[i], origin[j] ] = [ origin[j], origin[i] ];
-        }
-        return origin;
-    }
-
-    const sounds: string[] = chaos(bgsounds.sounds);
+    const sounds: string[] = bgsounds.sounds;
     const randomIndex: number = Math.floor( Math.random() * sounds.length );
     const index = ref<number>( randomIndex );
     
@@ -65,8 +57,6 @@
             player.value.play();
         });
     }
-
-    
 
     onMounted(() => {
         if ( autoplay ) {

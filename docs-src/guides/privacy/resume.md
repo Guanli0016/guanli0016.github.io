@@ -9,9 +9,22 @@
     <div class="resume-page">
         <div v-for="(value, key) in resumeData" :key="key" class="resume-module">
             <h2 class="resume-title">{{ key }}</h2>
-            <ul v-if="isArray(value)" class="resume-list">
+            <ul v-if="isArray(value) && value.every(isString)" class="resume-list">
                 <li v-for="(v, i) in value" :key="i">{{ v }}</li>
             </ul>
+            <div v-else-if="isArray(value)" class="resume-items">
+                <div v-for="(item, i) in value" :key="i" class="resume-item">
+                    <div v-for="(v, k) in item" :key="k" class="resume-row">
+                        <span class="resume-label">{{ k }}</span>：
+                        <div v-if="isArray(v)" class="resume-value">
+                            <ul class="resume-list resume-item-list">
+                                <li v-for="(text, j) in v" :key="j">{{ text }}</li>
+                            </ul>
+                        </div>
+                        <span v-else class="resume-value">{{ v }}</span>
+                    </div>
+                </div>
+            </div>
             <div v-else-if="isObject(value)" class="resume-detail">
                 <div v-for="(v, k) in value" :key="k" class="resume-row">
                     <span class="resume-label">{{ k }}</span>：
@@ -28,8 +41,9 @@
     import resumeObj from '../../configs/resume.json';
 
     const resumeData = ref(resumeObj);
-
+    
     const isArray = (value: unknown) => Array.isArray(value);
+    const isString = (value: unknown) => Object.prototype.toString.call(value) === '[object String]';
     const isObject = (value: unknown) => Object.prototype.toString.call(value) === '[object Object]';
 </script>
 
@@ -56,8 +70,8 @@
 
     .resume-list {
         margin: 0;
-        padding-left: 1.2rem;
-        list-style: disc;
+        /* padding-left: 1.2rem; */
+        /* list-style: disc; */
     }
 
     .resume-list li {
@@ -72,6 +86,20 @@
         gap: 8px;
     }
 
+    .resume-items {
+        display: grid;
+        gap: 20px;
+    }
+
+    .resume-item {
+        display: grid;
+        gap: 8px;
+    }
+
+    .resume-item-list {
+        margin-top: 0;
+    }
+
     .resume-row {
         display: flex;
         flex-wrap: wrap;
@@ -82,7 +110,7 @@
     }
 
     .resume-label {
-        width: 4em;
+        min-width: 4em;
         font-size: 0.96rem;
         line-height: 1.9;
         font-weight: 700;

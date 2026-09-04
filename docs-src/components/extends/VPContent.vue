@@ -141,9 +141,9 @@ const { hasSidebar } = useSidebar()
 }
 
 @function getShadows( $n ) {
-	$shadow: '#{ random(100) }vw #{ random(100) }vh #999';
+	$shadow: '#{ random(100) }vw #{ random(100) }vh #333';
 	@for $i from 2 through $n {
-		$shadow: '#{ $shadow }, #{ random(100) }vw #{ random(100) }vh #999';
+		$shadow: '#{ $shadow }, #{ random(100) }vw #{ random(100) }vh #333';
 	}
 	@return unquote($shadow);
 }

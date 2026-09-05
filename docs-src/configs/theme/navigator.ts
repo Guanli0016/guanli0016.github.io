@@ -49,11 +49,9 @@ export default [
             { text: 'Docx', link: '/guides/notes/docx/welcome' },
         ]
     }, {
-    //     text: '效果',
-    //     items: [
-    //         { text: '星空', link: '/guides/effects/starry' },
-    //     ]
-    // }, {
+        text: '我的简历',
+        link: '/guides/privacy/resume'
+    }, {
         text: '实用工具',
         items: [
             {

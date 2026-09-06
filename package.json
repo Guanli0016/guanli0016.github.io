@@ -11,6 +11,7 @@
     "docs:dev": "vitepress dev docs-src",
     "docs:build": "vitepress build docs-src",
     "docs:preview": "vitepress preview docs-src",
+    "docs:publish": "npm run docs:build && git add . && git commit -m %npm_config_content% && git push origin master",
     "greet": "echo Hello, %npm_config_word%"
   },
   "repository": {
